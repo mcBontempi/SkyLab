@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D63A39C318D9903900B6C664 /* Simple.tmx in Resources */ = {isa = PBXBuildFile; fileRef = D63A39C118D9903900B6C664 /* Simple.tmx */; };
+		D63A39C418D9903900B6C664 /* simpleAtlas.png in Resources */ = {isa = PBXBuildFile; fileRef = D63A39C218D9903900B6C664 /* simpleAtlas.png */; };
 		FD7C772318D480C00059C1E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C772218D480C00059C1E7 /* Foundation.framework */; };
 		FD7C772518D480C00059C1E7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C772418D480C00059C1E7 /* CoreGraphics.framework */; };
 		FD7C772718D480C00059C1E7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C772618D480C00059C1E7 /* UIKit.framework */; };
@@ -18,7 +20,6 @@
 		FD7C773B18D480C00059C1E7 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD7C773918D480C00059C1E7 /* Main_iPad.storyboard */; };
 		FD7C773E18D480C00059C1E7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7C773D18D480C00059C1E7 /* ViewController.m */; };
 		FD7C774118D480C00059C1E7 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7C774018D480C00059C1E7 /* MyScene.m */; };
-		FD7C774318D480C00059C1E7 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = FD7C774218D480C00059C1E7 /* Spaceship.png */; };
 		FD7C774518D480C00059C1E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD7C774418D480C00059C1E7 /* Images.xcassets */; };
 		FD7C774C18D480C00059C1E7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C774B18D480C00059C1E7 /* XCTest.framework */; };
 		FD7C774D18D480C00059C1E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C772218D480C00059C1E7 /* Foundation.framework */; };
@@ -28,8 +29,6 @@
 		FD7C776318D4BE670059C1E7 /* JSTileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7C776218D4BE670059C1E7 /* JSTileMap.m */; };
 		FD7C776618D4BEFA0059C1E7 /* LFCGzipUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7C776518D4BEFA0059C1E7 /* LFCGzipUtility.m */; };
 		FD7C776818D4BFB60059C1E7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C776718D4BFB60059C1E7 /* libz.dylib */; };
-		FD7C776C18D4C0900059C1E7 /* Base64-uncompressed.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FD7C776A18D4C0900059C1E7 /* Base64-uncompressed.tmx */; };
-		FD7C776D18D4C0900059C1E7 /* caveAtlas.png in Resources */ = {isa = PBXBuildFile; fileRef = FD7C776B18D4C0900059C1E7 /* caveAtlas.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D63A39C118D9903900B6C664 /* Simple.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Simple.tmx; path = maps/Simple.tmx; sourceTree = "<group>"; };
+		D63A39C218D9903900B6C664 /* simpleAtlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = simpleAtlas.png; path = maps/simpleAtlas.png; sourceTree = "<group>"; };
 		FD7C771F18D480C00059C1E7 /* SkyLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7C772218D480C00059C1E7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD7C772418D480C00059C1E7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,7 +61,6 @@
 		FD7C773D18D480C00059C1E7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FD7C773F18D480C00059C1E7 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
 		FD7C774018D480C00059C1E7 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
-		FD7C774218D480C00059C1E7 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		FD7C774418D480C00059C1E7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FD7C774A18D480C00059C1E7 /* SkyLabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkyLabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7C774B18D480C00059C1E7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -72,8 +72,6 @@
 		FD7C776418D4BEFA0059C1E7 /* LFCGzipUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFCGzipUtility.h; sourceTree = "<group>"; };
 		FD7C776518D4BEFA0059C1E7 /* LFCGzipUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFCGzipUtility.m; sourceTree = "<group>"; };
 		FD7C776718D4BFB60059C1E7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		FD7C776A18D4C0900059C1E7 /* Base64-uncompressed.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Base64-uncompressed.tmx"; path = "maps/Base64-uncompressed.tmx"; sourceTree = "<group>"; };
-		FD7C776B18D4C0900059C1E7 /* caveAtlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = caveAtlas.png; path = maps/caveAtlas.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +148,6 @@
 				FD7C773D18D480C00059C1E7 /* ViewController.m */,
 				FD7C773F18D480C00059C1E7 /* MyScene.h */,
 				FD7C774018D480C00059C1E7 /* MyScene.m */,
-				FD7C774218D480C00059C1E7 /* Spaceship.png */,
 				FD7C774418D480C00059C1E7 /* Images.xcassets */,
 				FD7C772B18D480C00059C1E7 /* Supporting Files */,
 			);
@@ -189,8 +186,8 @@
 		FD7C776918D4C0760059C1E7 /* maps */ = {
 			isa = PBXGroup;
 			children = (
-				FD7C776A18D4C0900059C1E7 /* Base64-uncompressed.tmx */,
-				FD7C776B18D4C0900059C1E7 /* caveAtlas.png */,
+				D63A39C118D9903900B6C664 /* Simple.tmx */,
+				D63A39C218D9903900B6C664 /* simpleAtlas.png */,
 			);
 			name = maps;
 			sourceTree = "<group>";
@@ -271,12 +268,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD7C774318D480C00059C1E7 /* Spaceship.png in Resources */,
-				FD7C776D18D4C0900059C1E7 /* caveAtlas.png in Resources */,
+				D63A39C418D9903900B6C664 /* simpleAtlas.png in Resources */,
 				FD7C774518D480C00059C1E7 /* Images.xcassets in Resources */,
 				FD7C773B18D480C00059C1E7 /* Main_iPad.storyboard in Resources */,
+				D63A39C318D9903900B6C664 /* Simple.tmx in Resources */,
 				FD7C773818D480C00059C1E7 /* Main_iPhone.storyboard in Resources */,
-				FD7C776C18D4C0900059C1E7 /* Base64-uncompressed.tmx in Resources */,
 				FD7C772F18D480C00059C1E7 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,6 +514,7 @@
 				FD7C775D18D480C00059C1E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FD7C775E18D480C00059C1E7 /* Build configuration list for PBXNativeTarget "SkyLabTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +523,7 @@
 				FD7C776018D480C00059C1E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

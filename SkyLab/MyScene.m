@@ -86,13 +86,13 @@
 		self.mapNameLabel.position = CGPointMake(0, -self.size.height/2.0 + 30);
 		
 		// test spade for zOrdering.  Some test maps will make this more useful (as a test) than others.
-		SKSpriteNode* spade = [SKSpriteNode spriteNodeWithImageNamed:@"black-spade-md.png"];
-		spade.position = CGPointMake(spade.frame.size.width/2.5, spade.frame.size.height/2.5);
-		spade.zPosition = self.tiledMap.minZPositioning / 2.0;
+	//	SKSpriteNode* spade = [SKSpriteNode spriteNodeWithImageNamed:@"black-spade-md.png"];
+	//	spade.position = CGPointMake(spade.frame.size.width/2.5, spade.frame.size.height/2.5);
+	//	spade.zPosition = self.tiledMap.minZPositioning / 2.0;
 #ifdef DEBUG
-		NSLog(@"SPADE has zPosition %f", spade.zPosition);
+//		NSLog(@"SPADE has zPosition %f", spade.zPosition);
 #endif
-		[self.tiledMap addChild:spade];
+//		[self.tiledMap addChild:spade];
 	}
 	else
 	{
@@ -102,40 +102,7 @@
 
 - (void) swapToNextMap
 {
-	static NSMutableArray* fileArray = nil;
-	static int arrayIndex = 0;
-	
-	if (!fileArray)
-	{
-		fileArray = [NSMutableArray array];
-		
-		NSError* error = nil;
-		NSArray* files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[[NSBundle mainBundle] resourcePath] error:&error];
-		for (NSString* filename in files)
-		{
-			if ([[[filename pathExtension] lowercaseString] rangeOfString:@"tmx"].location != NSNotFound)
-			{
-				//				[fileArray addObject:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:filename]];
-				[fileArray addObject:filename];
-			}
-		}
-	}
-	
-	if (fileArray.count)
-	{
-		if (arrayIndex >= fileArray.count)		// wrap bounds
-			arrayIndex = 0;
-		
-		[self.tiledMap removeFromParent];
-		
-		// reset the world's position and scale each time we change maps
-		self.worldNode.position = CGPointZero;
-		self.worldNode.xScale = 1.0;
-		self.worldNode.yScale = 1.0;
-		
-		[self loadTileMap:fileArray[arrayIndex]];
-		arrayIndex++;
-	}
+    [self loadTileMap:@"Simple.tmx"];
 }
 
 // update map label to always be near bottom of scene view
