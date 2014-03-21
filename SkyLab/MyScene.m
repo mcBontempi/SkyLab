@@ -21,6 +21,9 @@
     NSUInteger _pathPoint;
     
     CGPoint _pathOffset;
+    
+    
+    BOOL _extraSet;
 }
 
 -(id)initWithSize:(CGSize)size
@@ -49,10 +52,25 @@
 - (void)createRotor
 {
     _spaceship = [SKSpriteNode spriteNodeWithImageNamed:@"dot.png"];
-    _spaceship.position = CGPointMake(134,256);
+    //_spaceship.position = CGPointMake(134,256);
     
-   // _spaceship.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:1];
+    
+    
+    _spaceship.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:1];
+    _spaceship.physicsBody.affectedByGravity = NO;
     [self.tiledMap addChild:_spaceship];
+
+
+
+    
+    SKSpriteNode *spaceshipExtra = [SKSpriteNode spriteNodeWithImageNamed:@"dot.png"];
+    [self.tiledMap addChild:spaceshipExtra];
+    spaceshipExtra.physicsBody= [SKPhysicsBody bodyWithCircleOfRadius:1];
+    spaceshipExtra.physicsBody.affectedByGravity = NO;
+    
+    SKPhysicsJointSpring *spring = [SKPhysicsJointSpring jointWithBodyA:_spaceship.physicsBody bodyB:spaceshipExtra.physicsBody anchorA:CGPointZero anchorB:CGPointZero];
+
+    [self.physicsWorld addJoint:spring];
 }
 
 - (void)rotorAt:(CGPoint)point
