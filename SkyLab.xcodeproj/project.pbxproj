@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D605298C18DC1E5B007C5B1B /* NSString+PointArray.m in Sources */ = {isa = PBXBuildFile; fileRef = D605298B18DC1E5B007C5B1B /* NSString+PointArray.m */; };
 		D63A39C318D9903900B6C664 /* Simple.tmx in Resources */ = {isa = PBXBuildFile; fileRef = D63A39C118D9903900B6C664 /* Simple.tmx */; };
 		D63A39C418D9903900B6C664 /* simpleAtlas.png in Resources */ = {isa = PBXBuildFile; fileRef = D63A39C218D9903900B6C664 /* simpleAtlas.png */; };
 		FD5CB93218DB23EF002A9B09 /* dot.png in Resources */ = {isa = PBXBuildFile; fileRef = FD5CB93118DB23EF002A9B09 /* dot.png */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D605298A18DC1E5B007C5B1B /* NSString+PointArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PointArray.h"; sourceTree = "<group>"; };
+		D605298B18DC1E5B007C5B1B /* NSString+PointArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PointArray.m"; sourceTree = "<group>"; };
 		D63A39C118D9903900B6C664 /* Simple.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Simple.tmx; path = maps/Simple.tmx; sourceTree = "<group>"; };
 		D63A39C218D9903900B6C664 /* simpleAtlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = simpleAtlas.png; path = maps/simpleAtlas.png; sourceTree = "<group>"; };
 		FD5CB93118DB23EF002A9B09 /* dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dot.png; path = assets/dot.png; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 				FD7C774018D480C00059C1E7 /* MyScene.m */,
 				FD7C774418D480C00059C1E7 /* Images.xcassets */,
 				FD7C772B18D480C00059C1E7 /* Supporting Files */,
+				D605298A18DC1E5B007C5B1B /* NSString+PointArray.h */,
+				D605298B18DC1E5B007C5B1B /* NSString+PointArray.m */,
 			);
 			path = SkyLab;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 			files = (
 				FD7C774118D480C00059C1E7 /* MyScene.m in Sources */,
 				FD7C776318D4BE670059C1E7 /* JSTileMap.m in Sources */,
+				D605298C18DC1E5B007C5B1B /* NSString+PointArray.m in Sources */,
 				FD7C773E18D480C00059C1E7 /* ViewController.m in Sources */,
 				FD7C773518D480C00059C1E7 /* AppDelegate.m in Sources */,
 				FD7C776618D4BEFA0059C1E7 /* LFCGzipUtility.m in Sources */,
