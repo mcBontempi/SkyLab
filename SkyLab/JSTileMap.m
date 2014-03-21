@@ -215,6 +215,9 @@
 					layerNode = [[SKNode alloc] init];
 					layerNodes[tilesetInfo.name] = layerNode;
 				}
+        sprite.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:3];
+        sprite.physicsBody.dynamic = NO;
+        
 				[layerNode addChild:sprite];
 
 #ifdef DEBUG

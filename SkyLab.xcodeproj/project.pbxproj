@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D63A39C318D9903900B6C664 /* Simple.tmx in Resources */ = {isa = PBXBuildFile; fileRef = D63A39C118D9903900B6C664 /* Simple.tmx */; };
 		D63A39C418D9903900B6C664 /* simpleAtlas.png in Resources */ = {isa = PBXBuildFile; fileRef = D63A39C218D9903900B6C664 /* simpleAtlas.png */; };
+		FD5CB93218DB23EF002A9B09 /* dot.png in Resources */ = {isa = PBXBuildFile; fileRef = FD5CB93118DB23EF002A9B09 /* dot.png */; };
 		FD7C772318D480C00059C1E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C772218D480C00059C1E7 /* Foundation.framework */; };
 		FD7C772518D480C00059C1E7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C772418D480C00059C1E7 /* CoreGraphics.framework */; };
 		FD7C772718D480C00059C1E7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C772618D480C00059C1E7 /* UIKit.framework */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		D63A39C118D9903900B6C664 /* Simple.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Simple.tmx; path = maps/Simple.tmx; sourceTree = "<group>"; };
 		D63A39C218D9903900B6C664 /* simpleAtlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = simpleAtlas.png; path = maps/simpleAtlas.png; sourceTree = "<group>"; };
+		FD5CB93118DB23EF002A9B09 /* dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dot.png; path = assets/dot.png; sourceTree = "<group>"; };
 		FD7C771F18D480C00059C1E7 /* SkyLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7C772218D480C00059C1E7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD7C772418D480C00059C1E7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -100,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD5CB93018DB23DD002A9B09 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				FD5CB93118DB23EF002A9B09 /* dot.png */,
+			);
+			name = assets;
+			sourceTree = "<group>";
+		};
 		FD7C771618D480C00059C1E7 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +145,7 @@
 		FD7C772A18D480C00059C1E7 /* SkyLab */ = {
 			isa = PBXGroup;
 			children = (
+				FD5CB93018DB23DD002A9B09 /* assets */,
 				FD7C776918D4C0760059C1E7 /* maps */,
 				FD7C776418D4BEFA0059C1E7 /* LFCGzipUtility.h */,
 				FD7C776518D4BEFA0059C1E7 /* LFCGzipUtility.m */,
@@ -269,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D63A39C418D9903900B6C664 /* simpleAtlas.png in Resources */,
+				FD5CB93218DB23EF002A9B09 /* dot.png in Resources */,
 				FD7C774518D480C00059C1E7 /* Images.xcassets in Resources */,
 				FD7C773B18D480C00059C1E7 /* Main_iPad.storyboard in Resources */,
 				D63A39C318D9903900B6C664 /* Simple.tmx in Resources */,
