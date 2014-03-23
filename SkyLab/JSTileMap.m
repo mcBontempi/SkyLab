@@ -215,9 +215,17 @@
 					layerNode = [[SKNode alloc] init];
 					layerNodes[tilesetInfo.name] = layerNode;
 				}
-        sprite.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:3];
-        sprite.physicsBody.dynamic = NO;
         
+      //  if(gID>20) {
+        sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:sprite.size];
+        sprite.physicsBody.dynamic = YES;
+        sprite.physicsBody.affectedByGravity = NO;
+        sprite.physicsBody.allowsRotation = YES;
+       // sprite.physicsBody.friction = 0.0;;
+       // sprite.physicsBody.linearDamping = 0;
+        sprite.physicsBody.resting = NO;
+        sprite.physicsBody.restitution = 0.0;
+        //}
 				[layerNode addChild:sprite];
 
 #ifdef DEBUG

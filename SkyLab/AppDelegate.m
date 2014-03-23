@@ -7,12 +7,24 @@
 //
 
 #import "AppDelegate.h"
+#include <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
-@implementation AppDelegate
+@implementation AppDelegate{
+  AVAudioPlayer *_audioPlayer;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+  
+  //start a background sound
+  NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"skylab" ofType: @"mp3"];
+  NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:soundFilePath ];
+  _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:nil];
+  _audioPlayer.numberOfLoops = -1; //infinite loop
+ // [_audioPlayer play];
+  
+  
     return YES;
 }
 							

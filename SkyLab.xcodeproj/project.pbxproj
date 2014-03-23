@@ -10,7 +10,12 @@
 		D605298C18DC1E5B007C5B1B /* NSString+PointArray.m in Sources */ = {isa = PBXBuildFile; fileRef = D605298B18DC1E5B007C5B1B /* NSString+PointArray.m */; };
 		D63A39C318D9903900B6C664 /* Simple.tmx in Resources */ = {isa = PBXBuildFile; fileRef = D63A39C118D9903900B6C664 /* Simple.tmx */; };
 		D63A39C418D9903900B6C664 /* simpleAtlas.png in Resources */ = {isa = PBXBuildFile; fileRef = D63A39C218D9903900B6C664 /* simpleAtlas.png */; };
+		FD4B1B3718DE01360022D3EC /* skylab.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FD4B1B3618DE01360022D3EC /* skylab.mp3 */; };
+		FD4B1B3918DEF3EF0022D3EC /* Simple2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FD4B1B3818DEF3EF0022D3EC /* Simple2.tmx */; };
+		FD4B1B3B18DF01360022D3EC /* Simple3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FD4B1B3A18DF01360022D3EC /* Simple3.tmx */; };
+		FD4B1B3D18DF0A6C0022D3EC /* Simple4.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FD4B1B3C18DF0A6C0022D3EC /* Simple4.tmx */; };
 		FD5CB93218DB23EF002A9B09 /* dot.png in Resources */ = {isa = PBXBuildFile; fileRef = FD5CB93118DB23EF002A9B09 /* dot.png */; };
+		FD5CB93418DC70E8002A9B09 /* rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = FD5CB93318DC70E8002A9B09 /* rectangle.png */; };
 		FD7C772318D480C00059C1E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C772218D480C00059C1E7 /* Foundation.framework */; };
 		FD7C772518D480C00059C1E7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C772418D480C00059C1E7 /* CoreGraphics.framework */; };
 		FD7C772718D480C00059C1E7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C772618D480C00059C1E7 /* UIKit.framework */; };
@@ -48,7 +53,12 @@
 		D605298B18DC1E5B007C5B1B /* NSString+PointArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PointArray.m"; sourceTree = "<group>"; };
 		D63A39C118D9903900B6C664 /* Simple.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Simple.tmx; path = maps/Simple.tmx; sourceTree = "<group>"; };
 		D63A39C218D9903900B6C664 /* simpleAtlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = simpleAtlas.png; path = maps/simpleAtlas.png; sourceTree = "<group>"; };
+		FD4B1B3618DE01360022D3EC /* skylab.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = skylab.mp3; path = assets/skylab.mp3; sourceTree = "<group>"; };
+		FD4B1B3818DEF3EF0022D3EC /* Simple2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Simple2.tmx; path = maps/Simple2.tmx; sourceTree = "<group>"; };
+		FD4B1B3A18DF01360022D3EC /* Simple3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Simple3.tmx; path = maps/Simple3.tmx; sourceTree = "<group>"; };
+		FD4B1B3C18DF0A6C0022D3EC /* Simple4.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Simple4.tmx; path = maps/Simple4.tmx; sourceTree = "<group>"; };
 		FD5CB93118DB23EF002A9B09 /* dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dot.png; path = assets/dot.png; sourceTree = "<group>"; };
+		FD5CB93318DC70E8002A9B09 /* rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rectangle.png; path = assets/rectangle.png; sourceTree = "<group>"; };
 		FD7C771F18D480C00059C1E7 /* SkyLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7C772218D480C00059C1E7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD7C772418D480C00059C1E7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -108,7 +118,9 @@
 		FD5CB93018DB23DD002A9B09 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				FD4B1B3618DE01360022D3EC /* skylab.mp3 */,
 				FD5CB93118DB23EF002A9B09 /* dot.png */,
+				FD5CB93318DC70E8002A9B09 /* rectangle.png */,
 			);
 			name = assets;
 			sourceTree = "<group>";
@@ -203,6 +215,9 @@
 			isa = PBXGroup;
 			children = (
 				D63A39C118D9903900B6C664 /* Simple.tmx */,
+				FD4B1B3818DEF3EF0022D3EC /* Simple2.tmx */,
+				FD4B1B3A18DF01360022D3EC /* Simple3.tmx */,
+				FD4B1B3C18DF0A6C0022D3EC /* Simple4.tmx */,
 				D63A39C218D9903900B6C664 /* simpleAtlas.png */,
 			);
 			name = maps;
@@ -284,11 +299,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD4B1B3918DEF3EF0022D3EC /* Simple2.tmx in Resources */,
 				D63A39C418D9903900B6C664 /* simpleAtlas.png in Resources */,
 				FD5CB93218DB23EF002A9B09 /* dot.png in Resources */,
 				FD7C774518D480C00059C1E7 /* Images.xcassets in Resources */,
+				FD4B1B3D18DF0A6C0022D3EC /* Simple4.tmx in Resources */,
 				FD7C773B18D480C00059C1E7 /* Main_iPad.storyboard in Resources */,
+				FD4B1B3718DE01360022D3EC /* skylab.mp3 in Resources */,
 				D63A39C318D9903900B6C664 /* Simple.tmx in Resources */,
+				FD5CB93418DC70E8002A9B09 /* rectangle.png in Resources */,
+				FD4B1B3B18DF01360022D3EC /* Simple3.tmx in Resources */,
 				FD7C773818D480C00059C1E7 /* Main_iPhone.storyboard in Resources */,
 				FD7C772F18D480C00059C1E7 /* InfoPlist.strings in Resources */,
 			);
