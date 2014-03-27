@@ -10,6 +10,7 @@
 		D605298C18DC1E5B007C5B1B /* NSString+PointArray.m in Sources */ = {isa = PBXBuildFile; fileRef = D605298B18DC1E5B007C5B1B /* NSString+PointArray.m */; };
 		D63A39C318D9903900B6C664 /* Simple.tmx in Resources */ = {isa = PBXBuildFile; fileRef = D63A39C118D9903900B6C664 /* Simple.tmx */; };
 		D63A39C418D9903900B6C664 /* simpleAtlas.png in Resources */ = {isa = PBXBuildFile; fileRef = D63A39C218D9903900B6C664 /* simpleAtlas.png */; };
+		D65CFD5718E452FA0085737E /* Simple5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = D65CFD5618E452FA0085737E /* Simple5.tmx */; };
 		FD4B1B3718DE01360022D3EC /* skylab.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FD4B1B3618DE01360022D3EC /* skylab.mp3 */; };
 		FD4B1B3918DEF3EF0022D3EC /* Simple2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FD4B1B3818DEF3EF0022D3EC /* Simple2.tmx */; };
 		FD4B1B3B18DF01360022D3EC /* Simple3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FD4B1B3A18DF01360022D3EC /* Simple3.tmx */; };
@@ -53,6 +54,7 @@
 		D605298B18DC1E5B007C5B1B /* NSString+PointArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PointArray.m"; sourceTree = "<group>"; };
 		D63A39C118D9903900B6C664 /* Simple.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Simple.tmx; path = maps/Simple.tmx; sourceTree = "<group>"; };
 		D63A39C218D9903900B6C664 /* simpleAtlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = simpleAtlas.png; path = maps/simpleAtlas.png; sourceTree = "<group>"; };
+		D65CFD5618E452FA0085737E /* Simple5.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Simple5.tmx; path = maps/Simple5.tmx; sourceTree = "<group>"; };
 		FD4B1B3618DE01360022D3EC /* skylab.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = skylab.mp3; path = assets/skylab.mp3; sourceTree = "<group>"; };
 		FD4B1B3818DEF3EF0022D3EC /* Simple2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Simple2.tmx; path = maps/Simple2.tmx; sourceTree = "<group>"; };
 		FD4B1B3A18DF01360022D3EC /* Simple3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Simple3.tmx; path = maps/Simple3.tmx; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				FD4B1B3818DEF3EF0022D3EC /* Simple2.tmx */,
 				FD4B1B3A18DF01360022D3EC /* Simple3.tmx */,
 				FD4B1B3C18DF0A6C0022D3EC /* Simple4.tmx */,
+				D65CFD5618E452FA0085737E /* Simple5.tmx */,
 				D63A39C218D9903900B6C664 /* simpleAtlas.png */,
 			);
 			name = maps;
@@ -310,6 +313,7 @@
 				FD5CB93418DC70E8002A9B09 /* rectangle.png in Resources */,
 				FD4B1B3B18DF01360022D3EC /* Simple3.tmx in Resources */,
 				FD7C773818D480C00059C1E7 /* Main_iPhone.storyboard in Resources */,
+				D65CFD5718E452FA0085737E /* Simple5.tmx in Resources */,
 				FD7C772F18D480C00059C1E7 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

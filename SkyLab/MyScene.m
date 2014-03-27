@@ -59,7 +59,7 @@ const float interpolationDivider = 20;
     
     _interpolatedPointArray = [self interpolatePointArray:pointArray withCount:interpolationDivider];
     
-    self.backgroundColor = [UIColor lightGrayColor];
+    self.backgroundColor = [UIColor darkGrayColor];
   }
   
   return _interpolatedPointArray;
@@ -210,7 +210,7 @@ const float interpolationDivider = 20;
 
 - (void) swapToNextMap
 {
-  [self loadTileMap:@"Simple2.tmx"];
+  [self loadTileMap:@"Simple5.tmx"];
 }
 
 // update map label to always be near bottom of scene view

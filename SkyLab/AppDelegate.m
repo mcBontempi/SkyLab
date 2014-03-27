@@ -22,7 +22,7 @@
   NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:soundFilePath ];
   _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:nil];
   _audioPlayer.numberOfLoops = -1; //infinite loop
- // [_audioPlayer play];
+  [_audioPlayer play];
   
   
     return YES;
