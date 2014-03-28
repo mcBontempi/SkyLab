@@ -17,6 +17,9 @@ const float rotationSpeeed = 60;
 // 50 slow 5 fast
 const float interpolationDivider = 20;
 
+// Number of ghosts to display behind the rotor
+const NSUInteger spaceshipGhostCount = 100;
+
 
 @interface MyScene ()
 @property (nonatomic,weak) SKLabelNode* mapNameLabel;
@@ -29,13 +32,20 @@ const float interpolationDivider = 20;
 @implementation MyScene {
   SKSpriteNode *_spaceship;
   
-  NSUInteger _pathPoint;
+  NSMutableArray *_spaceShipGhostArray;
+  
+  CGFloat _pathPoint;
   
   CGPoint _pathOffset;
   
   BOOL _pressingScreen;
   
   CGFloat _pressingScreenPosition;
+  
+  
+  
+  CGFloat _speed;
+  
   
   
 }
@@ -59,7 +69,6 @@ const float interpolationDivider = 20;
     
     _interpolatedPointArray = [self interpolatePointArray:pointArray withCount:interpolationDivider];
     
-    self.backgroundColor = [UIColor darkGrayColor];
   }
   
   return _interpolatedPointArray;
@@ -83,6 +92,8 @@ const float interpolationDivider = 20;
     
 		[self swapToNextMap];
     
+    _speed = 0.2;
+    
 	}
 	return self;
 }
@@ -93,9 +104,25 @@ const float interpolationDivider = 20;
   _spaceship.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_spaceship.size];
   _spaceship.physicsBody.affectedByGravity = NO;
   _spaceship.physicsBody.dynamic = YES;
+  _spaceship.physicsBody.collisionBitMask = 1;
+  _spaceship.physicsBody.categoryBitMask = 1;
   
   [self.tiledMap addChild:_spaceship];
   
+  _spaceShipGhostArray = [[NSMutableArray alloc] init];
+  
+  for (NSUInteger i = 0 ; i < spaceshipGhostCount ; i++) {
+    SKSpriteNode *ghost = [SKSpriteNode spriteNodeWithImageNamed:@"rectangle.png"];
+    
+    double pc = spaceshipGhostCount;
+    pc/=i;
+    
+    
+    ghost.alpha = 0.025;
+    [self.tiledMap addChild:ghost];
+    
+    [_spaceShipGhostArray addObject:ghost];
+  }
 }
 
 - (void)rotorAt:(CGPoint)point
@@ -106,18 +133,42 @@ const float interpolationDivider = 20;
   
   _spaceship.position = CGPointMake(point.x + _pathOffset.x,  _pathOffset.y - point.y);
   
+  
+  
+  for (NSUInteger i = spaceshipGhostCount ; i>1 ; i--) {
+
+    
+    
+    SKSpriteNode *ghost = _spaceShipGhostArray[i-1];
+    SKSpriteNode *previousGhost = _spaceShipGhostArray[i-2];
+    
+    ghost.position = previousGhost.position;
+    ghost.zRotation = previousGhost.zRotation;
+  }
+
+ 
+  SKSpriteNode *firstGhost = _spaceShipGhostArray[0];
+  
+  firstGhost.position = _spaceship.position;
+  firstGhost.zRotation = _spaceship.zRotation;
+  
   self.worldNode.position = CGPointMake(-_spaceship.position.x + 400, -_spaceship.position.y +400);
 }
 
 -(void)update:(CFTimeInterval)currentTime {
-  NSValue *pointValue = self.interpolatedPointArray[_pathPoint];
+  NSValue *pointValue = self.interpolatedPointArray[(NSUInteger)_pathPoint];
+  
+  
+  
+  _speed += 0.0001;
   
   [self rotorAt: pointValue.CGPointValue];
   
-  _pathPoint++;
+  _pathPoint+=_speed;
   
-  if(_pathPoint == self.interpolatedPointArray.count) {
+  if(_pathPoint > self.interpolatedPointArray.count-1) {
     _pathPoint = 0;
+    //[self swapToNextMap];
   }
   
   if (_pressingScreen) {
@@ -210,7 +261,7 @@ const float interpolationDivider = 20;
 
 - (void) swapToNextMap
 {
-  [self loadTileMap:@"Simple5.tmx"];
+  [self loadTileMap:@"Level1.tmx"];
 }
 
 // update map label to always be near bottom of scene view
@@ -261,6 +312,8 @@ const float interpolationDivider = 20;
 
 - (void)pressingAtX:(CGFloat)x
 {
+  
+  
   SKAction *rotation;
   
   if (x>0) {

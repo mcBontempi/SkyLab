@@ -15,6 +15,7 @@
 		FD4B1B3918DEF3EF0022D3EC /* Simple2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FD4B1B3818DEF3EF0022D3EC /* Simple2.tmx */; };
 		FD4B1B3B18DF01360022D3EC /* Simple3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FD4B1B3A18DF01360022D3EC /* Simple3.tmx */; };
 		FD4B1B3D18DF0A6C0022D3EC /* Simple4.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FD4B1B3C18DF0A6C0022D3EC /* Simple4.tmx */; };
+		FD4B1B3F18E4C67C0022D3EC /* Level1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FD4B1B3E18E4C67C0022D3EC /* Level1.tmx */; };
 		FD5CB93218DB23EF002A9B09 /* dot.png in Resources */ = {isa = PBXBuildFile; fileRef = FD5CB93118DB23EF002A9B09 /* dot.png */; };
 		FD5CB93418DC70E8002A9B09 /* rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = FD5CB93318DC70E8002A9B09 /* rectangle.png */; };
 		FD7C772318D480C00059C1E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C772218D480C00059C1E7 /* Foundation.framework */; };
@@ -37,6 +38,9 @@
 		FD7C776318D4BE670059C1E7 /* JSTileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7C776218D4BE670059C1E7 /* JSTileMap.m */; };
 		FD7C776618D4BEFA0059C1E7 /* LFCGzipUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7C776518D4BEFA0059C1E7 /* LFCGzipUtility.m */; };
 		FD7C776818D4BFB60059C1E7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C776718D4BFB60059C1E7 /* libz.dylib */; };
+		FD94560418E5CC2C0056EA2C /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = FD94560318E5CC2C0056EA2C /* Background.png */; };
+		FD94560618E604EF0056EA2C /* mulberrybush.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FD94560518E604EF0056EA2C /* mulberrybush.mp3 */; };
+		FD94560818E609490056EA2C /* eencyweencyspider.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FD94560718E609490056EA2C /* eencyweencyspider.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,7 @@
 		FD4B1B3818DEF3EF0022D3EC /* Simple2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Simple2.tmx; path = maps/Simple2.tmx; sourceTree = "<group>"; };
 		FD4B1B3A18DF01360022D3EC /* Simple3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Simple3.tmx; path = maps/Simple3.tmx; sourceTree = "<group>"; };
 		FD4B1B3C18DF0A6C0022D3EC /* Simple4.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Simple4.tmx; path = maps/Simple4.tmx; sourceTree = "<group>"; };
+		FD4B1B3E18E4C67C0022D3EC /* Level1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Level1.tmx; path = maps/Level1.tmx; sourceTree = "<group>"; };
 		FD5CB93118DB23EF002A9B09 /* dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dot.png; path = assets/dot.png; sourceTree = "<group>"; };
 		FD5CB93318DC70E8002A9B09 /* rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rectangle.png; path = assets/rectangle.png; sourceTree = "<group>"; };
 		FD7C771F18D480C00059C1E7 /* SkyLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +94,9 @@
 		FD7C776418D4BEFA0059C1E7 /* LFCGzipUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFCGzipUtility.h; sourceTree = "<group>"; };
 		FD7C776518D4BEFA0059C1E7 /* LFCGzipUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFCGzipUtility.m; sourceTree = "<group>"; };
 		FD7C776718D4BFB60059C1E7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		FD94560318E5CC2C0056EA2C /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = maps/Background.png; sourceTree = "<group>"; };
+		FD94560518E604EF0056EA2C /* mulberrybush.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mulberrybush.mp3; path = assets/mulberrybush.mp3; sourceTree = "<group>"; };
+		FD94560718E609490056EA2C /* eencyweencyspider.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = eencyweencyspider.mp3; path = assets/eencyweencyspider.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +128,8 @@
 		FD5CB93018DB23DD002A9B09 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				FD94560718E609490056EA2C /* eencyweencyspider.mp3 */,
+				FD94560518E604EF0056EA2C /* mulberrybush.mp3 */,
 				FD4B1B3618DE01360022D3EC /* skylab.mp3 */,
 				FD5CB93118DB23EF002A9B09 /* dot.png */,
 				FD5CB93318DC70E8002A9B09 /* rectangle.png */,
@@ -216,12 +226,14 @@
 		FD7C776918D4C0760059C1E7 /* maps */ = {
 			isa = PBXGroup;
 			children = (
+				FD4B1B3E18E4C67C0022D3EC /* Level1.tmx */,
 				D63A39C118D9903900B6C664 /* Simple.tmx */,
 				FD4B1B3818DEF3EF0022D3EC /* Simple2.tmx */,
 				FD4B1B3A18DF01360022D3EC /* Simple3.tmx */,
 				FD4B1B3C18DF0A6C0022D3EC /* Simple4.tmx */,
 				D65CFD5618E452FA0085737E /* Simple5.tmx */,
 				D63A39C218D9903900B6C664 /* simpleAtlas.png */,
+				FD94560318E5CC2C0056EA2C /* Background.png */,
 			);
 			name = maps;
 			sourceTree = "<group>";
@@ -302,7 +314,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD4B1B3F18E4C67C0022D3EC /* Level1.tmx in Resources */,
 				FD4B1B3918DEF3EF0022D3EC /* Simple2.tmx in Resources */,
+				FD94560618E604EF0056EA2C /* mulberrybush.mp3 in Resources */,
 				D63A39C418D9903900B6C664 /* simpleAtlas.png in Resources */,
 				FD5CB93218DB23EF002A9B09 /* dot.png in Resources */,
 				FD7C774518D480C00059C1E7 /* Images.xcassets in Resources */,
@@ -313,6 +327,8 @@
 				FD5CB93418DC70E8002A9B09 /* rectangle.png in Resources */,
 				FD4B1B3B18DF01360022D3EC /* Simple3.tmx in Resources */,
 				FD7C773818D480C00059C1E7 /* Main_iPhone.storyboard in Resources */,
+				FD94560818E609490056EA2C /* eencyweencyspider.mp3 in Resources */,
+				FD94560418E5CC2C0056EA2C /* Background.png in Resources */,
 				D65CFD5718E452FA0085737E /* Simple5.tmx in Resources */,
 				FD7C772F18D480C00059C1E7 /* InfoPlist.strings in Resources */,
 			);
