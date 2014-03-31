@@ -14,7 +14,7 @@ const float KInterpolationDivider = 20;
 // Number of ghosts to display behind the rotor
 const NSUInteger KSpaceshipGhostCount = 50;
 // 0.2 slow 1 fast
-const CGFloat initialSpeed = 100.2;
+const CGFloat initialSpeed = 0.2;
 
 //0.001 very light 1 solid;
 const CGFloat KGhostAlpha = 0.005;
@@ -186,9 +186,6 @@ const CGFloat KSpeedIncrease = 0.0005;
 
 - (void) loadTileMap:(NSString*)tileMap
 {
-#ifdef DEBUG
-	NSLog(@"loading map named %@", tileMap);
-#endif
 	
 	self.tiledMap = [JSTileMap mapNamed:tileMap];
 	if (self.tiledMap)
@@ -206,7 +203,7 @@ const CGFloat KSpeedIncrease = 0.0005;
 			mapLabel.yScale = .5;
 			mapLabel.text = tileMap;
 			mapLabel.zPosition = -100;
-			[self addChild:mapLabel];
+		//	[self addChild:mapLabel];
 			self.mapNameLabel = mapLabel;
 		}
 		else

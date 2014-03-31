@@ -28,6 +28,12 @@
   _spriteKitView.showsFPS = YES;
   _spriteKitView.showsNodeCount = YES;
   
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+  [super viewDidAppear:animated];
+  
   [self loadLevel:_level];
 }
 

@@ -228,12 +228,6 @@
         sprite.physicsBody.categoryBitMask = 1;
         }
 				[layerNode addChild:sprite];
-
-#ifdef DEBUG
-//				CGRect textRect = [texture textureRect];
-//				NSLog(@"atlasNum %2d (%2d,%2d), gid (%d,%d), rect (%f, %f, %f, %f) sprite.pos (%3.2f,%3.2f) flipx%2d flipy%2d flipDiag%2d", gID+1, row, col, [tilesetInfo rowFromGid:gID], [tilesetInfo colFromGid:gID], textRect.origin.x, textRect.origin.y, textRect.size.width, textRect.size.height, sprite.position.x, sprite.position.y, flipX, flipY, flipDiag);
-#endif
-
 			}
 		}
 	}
@@ -485,8 +479,6 @@
 //	_atlasTexture = [SKTexture textureWithImage:atlas];           // CML: There seems to be a bug where creating with Image instead of ImageNamed breaks the
 	_atlasTexture = [SKTexture textureWithImageNamed:_sourceImage]; //      archiving.
 	
-	NSLog(@"texture image: %@\rSize (%f, %f)", _sourceImage, _atlasTexture.size.width, _atlasTexture.size.height);
-	
 	_unitTileSize = CGSizeMake(_tileSize.width / _imageSize.width,
 							   _tileSize.height / _imageSize.height);
 	
@@ -526,15 +518,7 @@
 		texture.filteringMode = SKTextureFilteringNearest;
 		self.textureCache[@(gid)] = texture;
 		
-		// tile data
-#ifdef DEBUG
-//		NSLog(@"The regular atlas is %f x %f.  Tile size is %f x % f plus %d spaces between each tile.", self.atlasTexture.size.width, self.atlasTexture.size.height, self.tileSize.width, self.tileSize.height, self.spacing);
-//		NSLog(@"Tile margins for this atlas are %d.  This means the atlas image is inset by this amount, from both the top left and bottom right.", self.margin);
-//		NSLog(@"gid %d is row %d, col %d of the atlas.  (map base gid is %d)", gid, [self rowFromGid:gid] + 1, [self colFromGid:gid] + 1, self.firstGid);
-//		NSLog(@"This means that the tile x offset is %f%% into the atlas and %f%% from the top-left of the atlas.", colOffset, rowOffset);
-//		NSLog(@"The adjusted tile size in percentages is %f wide and %f tall.", self.unitTileSize.width, self.unitTileSize.height);
-#endif
-	}
+		}
 	return texture;
 }
 
@@ -654,9 +638,6 @@
 		{
 			TMXLayer *child = [TMXLayer layerWithTilesetInfo:map.tilesets layerInfo:layerInfo mapInfo:map];
 			child.zPosition = baseZPosition + ((map.zOrderCount - layerInfo.zOrderCount) * zOrderModifier);
-#ifdef DEBUG
-			NSLog(@"Layer %@ has zPosition %f", layerInfo.name, child.zPosition);
-#endif
 			[map addChild:child];
 		}
 	}
@@ -664,9 +645,6 @@
 	// add tile objects
 	for (TMXObjectGroup* objectGroup in map.objectGroups)
 	{
-#ifdef DEBUG
-		NSLog(@"Object Group %@ has zPosition %f", objectGroup.groupName, (baseZPosition + (map.zOrderCount - objectGroup.zOrderCount) * zOrderModifier));
-#endif
 		
 		for (NSDictionary* obj in objectGroup.objects)
 		{
@@ -717,10 +695,7 @@
 		image.position = CGPointMake(image.size.width / 2.0, image.size.height / 2.0);
 		image.zPosition = baseZPosition + ((map.zOrderCount - imageLayer.zOrderCount) * zOrderModifier);
 		[map addChild:image];
-#ifdef DEBUG
-		NSLog(@"IMAGE Layer %@ has zPosition %f", imageLayer.name, image.zPosition);
-#endif
-		
+
 //#warning the positioning is off here, seems to be bottom-left instead of top-left.  Might be off on the rest of the sprites too...?
 	}
 	
