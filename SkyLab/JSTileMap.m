@@ -216,7 +216,7 @@
 					layerNodes[tilesetInfo.name] = layerNode;
 				}
         
-        if(gID>6) {
+        if(gID>5) {
         sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:sprite.size];
         sprite.physicsBody.dynamic = YES;
         sprite.physicsBody.affectedByGravity = NO;

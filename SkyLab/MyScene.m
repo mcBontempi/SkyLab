@@ -1,77 +1,63 @@
-//
-//  MyScene.m
-//  TMXMapSample
-//
-//  Created by Jeremy on 6/11/13.
-//  Copyright (c) 2013 Jeremy. All rights reserved.
-//
-
 #import "MyScene.h"
 #import "JSTileMap.h"
 #import "NSString+PointArray.h"
 
+//
+const NSUInteger KLapsRequired = 3;
 
 // 100 slow 10 fast
-const float rotationSpeeed = 60;
+const float KRotationSpeeed = 80;
 
 // 50 slow 5 fast
-const float interpolationDivider = 20;
+const float KInterpolationDivider = 20;
 
 // Number of ghosts to display behind the rotor
-const NSUInteger spaceshipGhostCount = 100;
+const NSUInteger KSpaceshipGhostCount = 50;
+// 0.2 slow 1 fast
+const CGFloat initialSpeed = 100.2;
 
+//0.001 very light 1 solid;
+const CGFloat KGhostAlpha = 0.005;
+
+// 0.0001 = slow increase
+const CGFloat KSpeedIncrease = 0.0005;
 
 @interface MyScene ()
 @property (nonatomic,weak) SKLabelNode* mapNameLabel;
-
 @property (nonatomic, strong) NSArray *interpolatedPointArray;
-
-
 @end
 
 @implementation MyScene {
+  SKSpriteNode *_space;
   SKSpriteNode *_spaceship;
-  
   NSMutableArray *_spaceShipGhostArray;
-  
   CGFloat _pathPoint;
-  
   CGPoint _pathOffset;
-  
   BOOL _pressingScreen;
-  
   CGFloat _pressingScreenPosition;
-  
-  
-  
   CGFloat _speed;
-  
-  
-  
+  NSUInteger _lapsCompleted;
 }
 
 - (NSArray *)interpolatedPointArray
 {
   if (!_interpolatedPointArray) {
     NSArray *array = self.tiledMap.objectGroups;
-    
     TMXObjectGroup *group0 = array[0];
-    
     NSMutableDictionary *dict = [[group0 objects] lastObject];
-    
-    NSLog(@"%@", dict);
-    
     NSString *polylines = dict[@"polylinePoints"];
-    
     _pathOffset = CGPointMake(((NSString *)dict[@"x"]).integerValue, ((NSString *)dict[@"y"]).integerValue );
-    
     NSArray *pointArray = [polylines pointArray];
-    
-    _interpolatedPointArray = [self interpolatePointArray:pointArray withCount:interpolationDivider];
-    
+    _interpolatedPointArray = [self interpolatePointArray:pointArray withCount:KInterpolationDivider];
   }
-  
   return _interpolatedPointArray;
+}
+
+- (void)setMapPath:(NSString *)mapPath
+{
+  _mapPath = mapPath;
+  
+  [self loadTileMap:mapPath];
 }
 
 -(id)initWithSize:(CGSize)size
@@ -80,21 +66,20 @@ const NSUInteger spaceshipGhostCount = 100;
 	{
 		// put anchor point in center of scene
 		self.anchorPoint = CGPointMake(0.5,0.5);
+  
+    _space = [[SKSpriteNode alloc] initWithImageNamed:@"space"];
+    _space.zPosition = -1000;
+    [self addChild:_space];
     
-		// create a world Node to allow for easy panning & zooming
-		SKNode* worldNode = [[SKNode alloc] init];
+    // create a world Node to allow for easy panning & zooming
+    SKNode* worldNode = [[SKNode alloc] init];
 		[self addChild:worldNode];
 		self.worldNode = worldNode;
-    
     self.worldNode.xScale = 1;
     self.worldNode.yScale = 1;
     
-    
-		[self swapToNextMap];
-    
-    _speed = 0.2;
-    
-	}
+    _speed = initialSpeed;
+}
 	return self;
 }
 
@@ -111,14 +96,9 @@ const NSUInteger spaceshipGhostCount = 100;
   
   _spaceShipGhostArray = [[NSMutableArray alloc] init];
   
-  for (NSUInteger i = 0 ; i < spaceshipGhostCount ; i++) {
+  for (NSUInteger i = 0 ; i < KSpaceshipGhostCount ; i++) {
     SKSpriteNode *ghost = [SKSpriteNode spriteNodeWithImageNamed:@"rectangle.png"];
     
-    double pc = spaceshipGhostCount;
-    pc/=i;
-    
-    
-    ghost.alpha = 0.025;
     [self.tiledMap addChild:ghost];
     
     [_spaceShipGhostArray addObject:ghost];
@@ -132,23 +112,21 @@ const NSUInteger spaceshipGhostCount = 100;
   }
   
   _spaceship.position = CGPointMake(point.x + _pathOffset.x,  _pathOffset.y - point.y);
-  
-  
-  
-  for (NSUInteger i = spaceshipGhostCount ; i>1 ; i--) {
 
-    
-    
-    SKSpriteNode *ghost = _spaceShipGhostArray[i-1];
+  _space.position= CGPointMake(-((point.x + _pathOffset.x)/2), -(( _pathOffset.y - point.y)/2));
+  
+  for (NSUInteger i = KSpaceshipGhostCount ; i>1 ; i--) {
+  SKSpriteNode *ghost = _spaceShipGhostArray[i-1];
     SKSpriteNode *previousGhost = _spaceShipGhostArray[i-2];
-    
     ghost.position = previousGhost.position;
     ghost.zRotation = previousGhost.zRotation;
+    
+    ghost.alpha = KGhostAlpha;
+    
   }
 
- 
   SKSpriteNode *firstGhost = _spaceShipGhostArray[0];
-  
+
   firstGhost.position = _spaceship.position;
   firstGhost.zRotation = _spaceship.zRotation;
   
@@ -157,10 +135,7 @@ const NSUInteger spaceshipGhostCount = 100;
 
 -(void)update:(CFTimeInterval)currentTime {
   NSValue *pointValue = self.interpolatedPointArray[(NSUInteger)_pathPoint];
-  
-  
-  
-  _speed += 0.0001;
+  _speed += KSpeedIncrease;
   
   [self rotorAt: pointValue.CGPointValue];
   
@@ -168,7 +143,10 @@ const NSUInteger spaceshipGhostCount = 100;
   
   if(_pathPoint > self.interpolatedPointArray.count-1) {
     _pathPoint = 0;
-    //[self swapToNextMap];
+    _lapsCompleted ++;
+    if (_lapsCompleted == KLapsRequired) {
+      [self.delegate levelComplete];
+    }
   }
   
   if (_pressingScreen) {
@@ -187,27 +165,18 @@ const NSUInteger spaceshipGhostCount = 100;
   CGFloat iteratiorStep = 1;
   iteratiorStep = iteratiorStep / count;
   
-  
   NSMutableArray *interpolatedPointArray = [[NSMutableArray alloc] init];
   
   for (NSUInteger pointIterator = 0 ; pointIterator < pointArray.count-1 ; pointIterator++) {
     
-    
     CGPoint point = ((NSValue *)pointArray[pointIterator]).CGPointValue;
     CGPoint nextPoint = ((NSValue *)pointArray[pointIterator+1]).CGPointValue;
     
-    
-    
     for (double interpolationIterator = 0 ; interpolationIterator < 1 ; interpolationIterator += iteratiorStep) {
-      
       CGPoint newPoint = CGPointMake([self lerpFrom:point.x to:nextPoint.x count:interpolationIterator], [self lerpFrom:point.y to:nextPoint.y count:interpolationIterator]);
-      
       [interpolatedPointArray addObject:[NSValue valueWithCGPoint:newPoint]];
-      
     }
-    
   }
-  
   return interpolatedPointArray;
 }
 
@@ -270,22 +239,14 @@ const NSUInteger spaceshipGhostCount = 100;
 	self.mapNameLabel.position = CGPointMake(0, -self.size.height/2.0 + 30);
 }
 
-
-
-
-
-
-
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-  
   for (UITouch *touch in touches) {
     CGPoint location = [touch locationInNode:self];
     _pressingScreen = YES;
     _pressingScreenPosition = location.x;
   }
 }
-
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -296,37 +257,26 @@ const NSUInteger spaceshipGhostCount = 100;
   }
 }
 
-
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-  
   _pressingScreen = NO;
-  
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-  
   _pressingScreen = NO;
 }
 
 - (void)pressingAtX:(CGFloat)x
 {
-  
-  
   SKAction *rotation;
-  
   if (x>0) {
-    rotation = [SKAction rotateByAngle: -M_PI/rotationSpeeed duration:0];
+    rotation = [SKAction rotateByAngle: -M_PI/KRotationSpeeed duration:0];
   }
   else {
-    rotation = [SKAction rotateByAngle: M_PI/rotationSpeeed duration:0];
-    
+    rotation = [SKAction rotateByAngle: M_PI/KRotationSpeeed duration:0];
   }
-  
   [_spaceship runAction: rotation];
-
 }
-
 
 @end

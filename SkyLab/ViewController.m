@@ -8,44 +8,63 @@
 
 #import "ViewController.h"
 #import "MyScene.h"
+#import "MySceneDelegate.h"
 
-@implementation ViewController
+@interface ViewController () <MySceneDelegate>
+@end
+
+@implementation ViewController {
+  __weak IBOutlet SKView *_spriteKitView;
+  
+  NSUInteger _level;
+}
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-
-    // Configure the view.
-    SKView * skView = (SKView *)self.view;
-    skView.showsFPS = YES;
-    skView.showsNodeCount = YES;
-    
-    // Create and configure the scene.
-    SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
-    
-    // Present the scene.
-    [skView presentScene:scene];
+  [super viewDidLoad];
+ 
+  _level = 1;
+  
+  _spriteKitView.showsFPS = YES;
+  _spriteKitView.showsNodeCount = YES;
+  
+  [self loadLevel:_level];
 }
 
-- (BOOL)shouldAutorotate
+- (void)loadLevel:(NSUInteger)level
 {
-    return YES;
+  [self showMapPath:[NSString stringWithFormat:@"Level%d.tmx",level]];
 }
 
-- (NSUInteger)supportedInterfaceOrientations
+- (void)showMapPath:(NSString *)mapPath
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskAll;
-    }
+  MyScene * scene = [MyScene sceneWithSize:_spriteKitView.bounds.size];
+  scene.scaleMode = SKSceneScaleModeAspectFill;
+  scene.delegate = self;
+  
+  [_spriteKitView presentScene:scene];
+  
+  scene.mapPath = mapPath;
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction)button1Tapped:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
+  [self showMapPath:@"Simple.tmx"];
+}
+
+- (IBAction)button2Tapped:(id)sender
+{
+  [self showMapPath:@"Simple2.tmx"];
+}
+
+- (void)levelComplete
+{
+    [self loadLevel:++_level];
+}
+
+- (void)died
+{
+  [self loadLevel:_level];
 }
 
 @end

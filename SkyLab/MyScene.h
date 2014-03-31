@@ -7,6 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "MySceneDelegate.h"
 
 @class JSTileMap;
 
@@ -22,4 +23,8 @@
 
 - (void) swapToNextMap;
 
+
+@property (nonatomic, assign) NSString *mapPath;
+
+@property (nonatomic, weak) id<MySceneDelegate> delegate;
 @end

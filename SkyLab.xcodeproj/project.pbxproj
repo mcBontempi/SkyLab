@@ -38,9 +38,11 @@
 		FD7C776318D4BE670059C1E7 /* JSTileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7C776218D4BE670059C1E7 /* JSTileMap.m */; };
 		FD7C776618D4BEFA0059C1E7 /* LFCGzipUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7C776518D4BEFA0059C1E7 /* LFCGzipUtility.m */; };
 		FD7C776818D4BFB60059C1E7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7C776718D4BFB60059C1E7 /* libz.dylib */; };
-		FD94560418E5CC2C0056EA2C /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = FD94560318E5CC2C0056EA2C /* Background.png */; };
 		FD94560618E604EF0056EA2C /* mulberrybush.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FD94560518E604EF0056EA2C /* mulberrybush.mp3 */; };
 		FD94560818E609490056EA2C /* eencyweencyspider.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FD94560718E609490056EA2C /* eencyweencyspider.mp3 */; };
+		FD94560A18E6AF780056EA2C /* space.png in Resources */ = {isa = PBXBuildFile; fileRef = FD94560918E6AF780056EA2C /* space.png */; };
+		FD94560C18E6B5460056EA2C /* channelx.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FD94560B18E6B5460056EA2C /* channelx.mp3 */; };
+		FD94560F18E9EB5B0056EA2C /* Level2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FD94560E18E9EB5B0056EA2C /* Level2.tmx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,9 +96,12 @@
 		FD7C776418D4BEFA0059C1E7 /* LFCGzipUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFCGzipUtility.h; sourceTree = "<group>"; };
 		FD7C776518D4BEFA0059C1E7 /* LFCGzipUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFCGzipUtility.m; sourceTree = "<group>"; };
 		FD7C776718D4BFB60059C1E7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		FD94560318E5CC2C0056EA2C /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = maps/Background.png; sourceTree = "<group>"; };
 		FD94560518E604EF0056EA2C /* mulberrybush.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mulberrybush.mp3; path = assets/mulberrybush.mp3; sourceTree = "<group>"; };
 		FD94560718E609490056EA2C /* eencyweencyspider.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = eencyweencyspider.mp3; path = assets/eencyweencyspider.mp3; sourceTree = "<group>"; };
+		FD94560918E6AF780056EA2C /* space.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = space.png; path = assets/space.png; sourceTree = "<group>"; };
+		FD94560B18E6B5460056EA2C /* channelx.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = channelx.mp3; path = assets/channelx.mp3; sourceTree = "<group>"; };
+		FD94560D18E967710056EA2C /* MySceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySceneDelegate.h; sourceTree = "<group>"; };
+		FD94560E18E9EB5B0056EA2C /* Level2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Level2.tmx; path = maps/Level2.tmx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,11 +133,13 @@
 		FD5CB93018DB23DD002A9B09 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				FD94560B18E6B5460056EA2C /* channelx.mp3 */,
 				FD94560718E609490056EA2C /* eencyweencyspider.mp3 */,
 				FD94560518E604EF0056EA2C /* mulberrybush.mp3 */,
 				FD4B1B3618DE01360022D3EC /* skylab.mp3 */,
 				FD5CB93118DB23EF002A9B09 /* dot.png */,
 				FD5CB93318DC70E8002A9B09 /* rectangle.png */,
+				FD94560918E6AF780056EA2C /* space.png */,
 			);
 			name = assets;
 			sourceTree = "<group>";
@@ -186,6 +193,7 @@
 				FD7C773D18D480C00059C1E7 /* ViewController.m */,
 				FD7C773F18D480C00059C1E7 /* MyScene.h */,
 				FD7C774018D480C00059C1E7 /* MyScene.m */,
+				FD94560D18E967710056EA2C /* MySceneDelegate.h */,
 				FD7C774418D480C00059C1E7 /* Images.xcassets */,
 				FD7C772B18D480C00059C1E7 /* Supporting Files */,
 				D605298A18DC1E5B007C5B1B /* NSString+PointArray.h */,
@@ -227,13 +235,13 @@
 			isa = PBXGroup;
 			children = (
 				FD4B1B3E18E4C67C0022D3EC /* Level1.tmx */,
+				FD94560E18E9EB5B0056EA2C /* Level2.tmx */,
 				D63A39C118D9903900B6C664 /* Simple.tmx */,
 				FD4B1B3818DEF3EF0022D3EC /* Simple2.tmx */,
 				FD4B1B3A18DF01360022D3EC /* Simple3.tmx */,
 				FD4B1B3C18DF0A6C0022D3EC /* Simple4.tmx */,
 				D65CFD5618E452FA0085737E /* Simple5.tmx */,
 				D63A39C218D9903900B6C664 /* simpleAtlas.png */,
-				FD94560318E5CC2C0056EA2C /* Background.png */,
 			);
 			name = maps;
 			sourceTree = "<group>";
@@ -314,6 +322,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD94560F18E9EB5B0056EA2C /* Level2.tmx in Resources */,
 				FD4B1B3F18E4C67C0022D3EC /* Level1.tmx in Resources */,
 				FD4B1B3918DEF3EF0022D3EC /* Simple2.tmx in Resources */,
 				FD94560618E604EF0056EA2C /* mulberrybush.mp3 in Resources */,
@@ -323,12 +332,13 @@
 				FD4B1B3D18DF0A6C0022D3EC /* Simple4.tmx in Resources */,
 				FD7C773B18D480C00059C1E7 /* Main_iPad.storyboard in Resources */,
 				FD4B1B3718DE01360022D3EC /* skylab.mp3 in Resources */,
+				FD94560C18E6B5460056EA2C /* channelx.mp3 in Resources */,
 				D63A39C318D9903900B6C664 /* Simple.tmx in Resources */,
+				FD94560A18E6AF780056EA2C /* space.png in Resources */,
 				FD5CB93418DC70E8002A9B09 /* rectangle.png in Resources */,
 				FD4B1B3B18DF01360022D3EC /* Simple3.tmx in Resources */,
 				FD7C773818D480C00059C1E7 /* Main_iPhone.storyboard in Resources */,
 				FD94560818E609490056EA2C /* eencyweencyspider.mp3 in Resources */,
-				FD94560418E5CC2C0056EA2C /* Background.png in Resources */,
 				D65CFD5718E452FA0085737E /* Simple5.tmx in Resources */,
 				FD7C772F18D480C00059C1E7 /* InfoPlist.strings in Resources */,
 			);
