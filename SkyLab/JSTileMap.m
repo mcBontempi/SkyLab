@@ -225,7 +225,7 @@
        // sprite.physicsBody.linearDamping = 0;
         sprite.physicsBody.resting = NO;
         sprite.physicsBody.restitution = 0.0;
-        sprite.physicsBody.categoryBitMask = 1;
+        sprite.physicsBody.categoryBitMask = 2;
         }
 				[layerNode addChild:sprite];
 			}

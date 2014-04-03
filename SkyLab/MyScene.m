@@ -14,7 +14,7 @@ const float KInterpolationDivider = 20;
 // Number of ghosts to display behind the rotor
 const NSUInteger KSpaceshipGhostCount = 50;
 // 0.2 slow 1 fast
-const CGFloat initialSpeed = 0.2;
+const CGFloat initialSpeed = 1.2;
 
 //0.001 very light 1 solid;
 const CGFloat KGhostAlpha = 0.005;
@@ -22,7 +22,13 @@ const CGFloat KGhostAlpha = 0.005;
 // 0.0001 = slow increase
 const CGFloat KSpeedIncrease = 0.0005;
 
-@interface MyScene ()
+// the number of 'lives'
+const NSUInteger KInitialPower = 4;
+
+// 1 = normal 3 = zoomed in 0.5 is zoomed out
+const CGFloat KInitialZoomLevel = 1.3;
+
+@interface MyScene () <SKPhysicsContactDelegate>
 @property (nonatomic,weak) SKLabelNode* mapNameLabel;
 @property (nonatomic, strong) NSArray *interpolatedPointArray;
 @end
@@ -37,6 +43,9 @@ const CGFloat KSpeedIncrease = 0.0005;
   CGFloat _pressingScreenPosition;
   CGFloat _speed;
   NSUInteger _lapsCompleted;
+  NSUInteger _power;
+  
+  CGFloat _zoom;
 }
 
 - (NSArray *)interpolatedPointArray
@@ -75,12 +84,32 @@ const CGFloat KSpeedIncrease = 0.0005;
     SKNode* worldNode = [[SKNode alloc] init];
 		[self addChild:worldNode];
 		self.worldNode = worldNode;
-    self.worldNode.xScale = 1;
-    self.worldNode.yScale = 1;
+    
+    _zoom = KInitialZoomLevel;
+    self.worldNode.xScale = _zoom;
+    self.worldNode.yScale = _zoom;
+    
+    self.physicsWorld.contactDelegate = self;
     
     _speed = initialSpeed;
+    
+    _power = KInitialPower;
+    
 }
 	return self;
+}
+
+- (void)didBeginContact:(SKPhysicsContact *)contact
+{
+  NSLog(@"Contact");
+  
+  _power--;
+  
+  NSLog(@"power = %d", _power);
+  
+  if (_power == 0) {
+    [self.delegate died];
+  }
 }
 
 - (void)createRotor
@@ -88,9 +117,12 @@ const CGFloat KSpeedIncrease = 0.0005;
   _spaceship = [SKSpriteNode spriteNodeWithImageNamed:@"rectangle.png"];
   _spaceship.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_spaceship.size];
   _spaceship.physicsBody.affectedByGravity = NO;
-  _spaceship.physicsBody.dynamic = YES;
-  _spaceship.physicsBody.collisionBitMask = 1;
+  _spaceship.physicsBody.dynamic = NO;
   _spaceship.physicsBody.categoryBitMask = 1;
+  
+  _spaceship.physicsBody.collisionBitMask = 2;
+  _spaceship.physicsBody.contactTestBitMask = 2;
+  
   
   [self.tiledMap addChild:_spaceship];
   
