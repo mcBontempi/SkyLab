@@ -23,10 +23,10 @@
 {
   [super viewDidLoad];
  
-  _level = 1;
+  _level = 4;
   
-  _spriteKitView.showsFPS = YES;
-  _spriteKitView.showsNodeCount = YES;
+  _spriteKitView.alpha = 0.0;
+  
   
 }
 
@@ -39,6 +39,8 @@
 
 - (void)loadLevel:(NSUInteger)level
 {
+  [UIView animateWithDuration:1.0 animations:^{ _spriteKitView.alpha = 1.0;}];
+  
   [self showMapPath:[NSString stringWithFormat:@"Level%d.tmx",level]];
 }
 
@@ -65,12 +67,16 @@
 
 - (void)levelComplete
 {
+  [UIView animateWithDuration:1.0 animations:^{ _spriteKitView.alpha = 0.0;} completion:^(BOOL finished) {
     [self loadLevel:++_level];
+  }];
 }
 
 - (void)died
 {
-  [self loadLevel:_level];
+  [UIView animateWithDuration:1.0 animations:^{ _spriteKitView.alpha = 0.0;} completion:^(BOOL finished) {
+    [self loadLevel:_level];
+  }];
 }
 
 @end

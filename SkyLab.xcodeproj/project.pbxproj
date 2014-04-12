@@ -50,6 +50,11 @@
 		FDC2D93018F809A900E868C1 /* Level3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FDC2D92F18F809A900E868C1 /* Level3.tmx */; };
 		FDC2D93218F80C5E00E868C1 /* Level4.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FDC2D93118F80C5E00E868C1 /* Level4.tmx */; };
 		FDC2D93418F80E6800E868C1 /* whoosh.wav in Resources */ = {isa = PBXBuildFile; fileRef = FDC2D93318F80E6800E868C1 /* whoosh.wav */; };
+		FDC2D93618F901FA00E868C1 /* Level5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FDC2D93518F901FA00E868C1 /* Level5.tmx */; };
+		FDC2D93818F9097000E868C1 /* Level6.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FDC2D93718F9097000E868C1 /* Level6.tmx */; };
+		FDC2D93A18F90D0B00E868C1 /* Level7.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FDC2D93918F90D0B00E868C1 /* Level7.tmx */; };
+		FDC2D93C18F90F6D00E868C1 /* Level8.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FDC2D93B18F90F6D00E868C1 /* Level8.tmx */; };
+		FDC2D93E18F9124800E868C1 /* Level9.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FDC2D93D18F9124800E868C1 /* Level9.tmx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +121,11 @@
 		FDC2D92F18F809A900E868C1 /* Level3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Level3.tmx; path = maps/Level3.tmx; sourceTree = "<group>"; };
 		FDC2D93118F80C5E00E868C1 /* Level4.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Level4.tmx; path = maps/Level4.tmx; sourceTree = "<group>"; };
 		FDC2D93318F80E6800E868C1 /* whoosh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = whoosh.wav; path = assets/whoosh.wav; sourceTree = "<group>"; };
+		FDC2D93518F901FA00E868C1 /* Level5.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Level5.tmx; path = maps/Level5.tmx; sourceTree = "<group>"; };
+		FDC2D93718F9097000E868C1 /* Level6.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Level6.tmx; path = maps/Level6.tmx; sourceTree = "<group>"; };
+		FDC2D93918F90D0B00E868C1 /* Level7.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Level7.tmx; path = maps/Level7.tmx; sourceTree = "<group>"; };
+		FDC2D93B18F90F6D00E868C1 /* Level8.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Level8.tmx; path = maps/Level8.tmx; sourceTree = "<group>"; };
+		FDC2D93D18F9124800E868C1 /* Level9.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Level9.tmx; path = maps/Level9.tmx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +268,11 @@
 				FD94560E18E9EB5B0056EA2C /* Level2.tmx */,
 				FDC2D92F18F809A900E868C1 /* Level3.tmx */,
 				FDC2D93118F80C5E00E868C1 /* Level4.tmx */,
+				FDC2D93518F901FA00E868C1 /* Level5.tmx */,
+				FDC2D93718F9097000E868C1 /* Level6.tmx */,
+				FDC2D93918F90D0B00E868C1 /* Level7.tmx */,
+				FDC2D93B18F90F6D00E868C1 /* Level8.tmx */,
+				FDC2D93D18F9124800E868C1 /* Level9.tmx */,
 				D63A39C118D9903900B6C664 /* Simple.tmx */,
 				FD4B1B3818DEF3EF0022D3EC /* Simple2.tmx */,
 				FD4B1B3A18DF01360022D3EC /* Simple3.tmx */,
@@ -352,13 +367,17 @@
 				FDC2D93018F809A900E868C1 /* Level3.tmx in Resources */,
 				D63A39C418D9903900B6C664 /* simpleAtlas.png in Resources */,
 				FD5CB93218DB23EF002A9B09 /* dot.png in Resources */,
+				FDC2D93A18F90D0B00E868C1 /* Level7.tmx in Resources */,
 				FD7C774518D480C00059C1E7 /* Images.xcassets in Resources */,
 				FD4B1B3D18DF0A6C0022D3EC /* Simple4.tmx in Resources */,
 				FD7C773B18D480C00059C1E7 /* Main_iPad.storyboard in Resources */,
 				FD4B1B3718DE01360022D3EC /* skylab.mp3 in Resources */,
 				FD94560C18E6B5460056EA2C /* channelx.mp3 in Resources */,
+				FDC2D93E18F9124800E868C1 /* Level9.tmx in Resources */,
 				FDC2D93218F80C5E00E868C1 /* Level4.tmx in Resources */,
+				FDC2D93818F9097000E868C1 /* Level6.tmx in Resources */,
 				D63A39C318D9903900B6C664 /* Simple.tmx in Resources */,
+				FDC2D93C18F90F6D00E868C1 /* Level8.tmx in Resources */,
 				FD94560A18E6AF780056EA2C /* space.png in Resources */,
 				FD5CB93418DC70E8002A9B09 /* rectangle.png in Resources */,
 				FD4B1B3B18DF01360022D3EC /* Simple3.tmx in Resources */,
@@ -366,6 +385,7 @@
 				FDC2D93418F80E6800E868C1 /* whoosh.wav in Resources */,
 				FD94560818E609490056EA2C /* eencyweencyspider.mp3 in Resources */,
 				FDC2D92E18F7C82000E868C1 /* taketrip.mp3 in Resources */,
+				FDC2D93618F901FA00E868C1 /* Level5.tmx in Resources */,
 				D65CFD5718E452FA0085737E /* Simple5.tmx in Resources */,
 				FD7C772F18D480C00059C1E7 /* InfoPlist.strings in Resources */,
 				FDC2D92D18F7C82000E868C1 /* die.mp3 in Resources */,

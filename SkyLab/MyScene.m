@@ -144,7 +144,7 @@ const CGFloat KInitialZoomLevel = 2.0;
   
   if (_power == 0) {
     _spaceship.physicsBody = nil;
-    [self performSelector:@selector(diedTimedOut) withObject:nil afterDelay:3.0];
+    [self performSelector:@selector(diedTimedOut) withObject:nil afterDelay:1.0];
     [_spaceship runAction:_dieSound];
     
   
