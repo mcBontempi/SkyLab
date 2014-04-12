@@ -1,9 +1,9 @@
 #import "MyScene.h"
 #import "JSTileMap.h"
-#import "NSString+PointArray.h"
+#import "NSString+PointArray.h"ki
 
 //
-const NSUInteger KLapsRequired = 3;
+const NSUInteger KLapsRequired = 5;
 
 // 100 slow 10 fast
 const float KRotationSpeeed = 80;
@@ -14,19 +14,19 @@ const float KInterpolationDivider = 20;
 // Number of ghosts to display behind the rotor
 const NSUInteger KSpaceshipGhostCount = 50;
 // 0.2 slow 1 fast
-const CGFloat initialSpeed = 1.2;
+const CGFloat initialSpeed = 1.0;
 
 //0.001 very light 1 solid;
 const CGFloat KGhostAlpha = 0.005;
 
 // 0.0001 = slow increase
-const CGFloat KSpeedIncrease = 0.0005;
+const CGFloat KSpeedIncrease = 0.5;
 
 // the number of 'lives'
-const NSUInteger KInitialPower = 4;
+const NSUInteger KInitialPower = 7;
 
 // 1 = normal 3 = zoomed in 0.5 is zoomed out
-const CGFloat KInitialZoomLevel = 1.3;
+const CGFloat KInitialZoomLevel = 2.0;
 
 @interface MyScene () <SKPhysicsContactDelegate>
 @property (nonatomic,weak) SKLabelNode* mapNameLabel;
@@ -46,6 +46,11 @@ const CGFloat KInitialZoomLevel = 1.3;
   NSUInteger _power;
   
   CGFloat _zoom;
+  
+  SKAction *_crashSound;
+  SKAction *_dieSound;
+  SKAction *_whooshSound;
+  
 }
 
 - (NSArray *)interpolatedPointArray
@@ -71,13 +76,17 @@ const CGFloat KInitialZoomLevel = 1.3;
 
 -(id)initWithSize:(CGSize)size
 {
-	if (self = [super initWithSize:size])
+  
+  CGSize zoomedSize = CGSizeMake(size.width/KInitialZoomLevel, size.height / KInitialZoomLevel);
+  
+	if (self = [super initWithSize:zoomedSize])
 	{
 		// put anchor point in center of scene
 		self.anchorPoint = CGPointMake(0.5,0.5);
   
     _space = [[SKSpriteNode alloc] initWithImageNamed:@"space"];
     _space.zPosition = -1000;
+    _space.color = [UIColor blueColor];
     [self addChild:_space];
     
     // create a world Node to allow for easy panning & zooming
@@ -86,14 +95,20 @@ const CGFloat KInitialZoomLevel = 1.3;
 		self.worldNode = worldNode;
     
     _zoom = KInitialZoomLevel;
-    self.worldNode.xScale = _zoom;
-    self.worldNode.yScale = _zoom;
+  //  self.worldNode.xScale = _zoom;
+  //  self.worldNode.yScale = _zoom;
     
     self.physicsWorld.contactDelegate = self;
     
     _speed = initialSpeed;
     
     _power = KInitialPower;
+    
+    
+    _crashSound = [SKAction playSoundFileNamed:@"crash.wav" waitForCompletion:NO];
+  //  _dieSound = [SKAction playSoundFileNamed:@"die.mp3" waitForCompletion:NO];
+    _whooshSound = [SKAction playSoundFileNamed:@"whoosh.wav" waitForCompletion:NO];
+    
     
 }
 	return self;
@@ -103,13 +118,42 @@ const CGFloat KInitialZoomLevel = 1.3;
 {
   NSLog(@"Contact");
   
-  _power--;
+  if(_power) {
+    _power--;
+    
+    double alpha = _power;
+    alpha /= KInitialPower;
+    
+    [UIView animateWithDuration:1.5 animations:^ {
+      _spaceship.alpha = alpha;
+    }];
+ 
+    
+    [UIView animateWithDuration:1.5 animations:^ {
+      _space.colorBlendFactor = 1.0;
+    } completion:^(BOOL completed){ _space.colorBlendFactor = 0.0;  }];
+   
+    
+    
+    [_spaceship runAction:_crashSound];
+    
+    
+  }
   
   NSLog(@"power = %d", _power);
   
   if (_power == 0) {
-    [self.delegate died];
+    _spaceship.physicsBody = nil;
+    [self performSelector:@selector(diedTimedOut) withObject:nil afterDelay:3.0];
+    [_spaceship runAction:_dieSound];
+    
+  
   }
+}
+
+- (void)diedTimedOut
+{
+  [self.delegate died];
 }
 
 - (void)createRotor
@@ -152,8 +196,7 @@ const CGFloat KInitialZoomLevel = 1.3;
     SKSpriteNode *previousGhost = _spaceShipGhostArray[i-2];
     ghost.position = previousGhost.position;
     ghost.zRotation = previousGhost.zRotation;
-    
-    ghost.alpha = KGhostAlpha;
+    ghost.alpha = previousGhost.alpha;
     
   }
 
@@ -161,13 +204,13 @@ const CGFloat KInitialZoomLevel = 1.3;
 
   firstGhost.position = _spaceship.position;
   firstGhost.zRotation = _spaceship.zRotation;
+  firstGhost.alpha = _spaceship.alpha/50;
   
   self.worldNode.position = CGPointMake(-_spaceship.position.x + 400, -_spaceship.position.y +400);
 }
 
 -(void)update:(CFTimeInterval)currentTime {
   NSValue *pointValue = self.interpolatedPointArray[(NSUInteger)_pathPoint];
-  _speed += KSpeedIncrease;
   
   [self rotorAt: pointValue.CGPointValue];
   
@@ -176,6 +219,10 @@ const CGFloat KInitialZoomLevel = 1.3;
   if(_pathPoint > self.interpolatedPointArray.count-1) {
     _pathPoint = 0;
     _lapsCompleted ++;
+    _speed += KSpeedIncrease;
+    
+    [_spaceship runAction:_whooshSound];
+    
     if (_lapsCompleted == KLapsRequired) {
       [self.delegate levelComplete];
     }
@@ -184,7 +231,6 @@ const CGFloat KInitialZoomLevel = 1.3;
   if (_pressingScreen) {
     [self pressingAtX:_pressingScreenPosition];
   }
-  
 }
 
 - (double)lerpFrom:(float)from to:(float)to count:(double)count
@@ -307,5 +353,7 @@ const CGFloat KInitialZoomLevel = 1.3;
   }
   [_spaceship runAction: rotation];
 }
+
+
 
 @end

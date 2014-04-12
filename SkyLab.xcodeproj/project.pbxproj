@@ -43,6 +43,13 @@
 		FD94560A18E6AF780056EA2C /* space.png in Resources */ = {isa = PBXBuildFile; fileRef = FD94560918E6AF780056EA2C /* space.png */; };
 		FD94560C18E6B5460056EA2C /* channelx.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FD94560B18E6B5460056EA2C /* channelx.mp3 */; };
 		FD94560F18E9EB5B0056EA2C /* Level2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FD94560E18E9EB5B0056EA2C /* Level2.tmx */; };
+		FDC2D92518F6C5C900E868C1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC2D92418F6C5C900E868C1 /* AudioToolbox.framework */; };
+		FDC2D92A18F7C6F100E868C1 /* crash.wav in Resources */ = {isa = PBXBuildFile; fileRef = FDC2D92918F7C6F100E868C1 /* crash.wav */; };
+		FDC2D92D18F7C82000E868C1 /* die.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FDC2D92B18F7C82000E868C1 /* die.mp3 */; };
+		FDC2D92E18F7C82000E868C1 /* taketrip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FDC2D92C18F7C82000E868C1 /* taketrip.mp3 */; };
+		FDC2D93018F809A900E868C1 /* Level3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FDC2D92F18F809A900E868C1 /* Level3.tmx */; };
+		FDC2D93218F80C5E00E868C1 /* Level4.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FDC2D93118F80C5E00E868C1 /* Level4.tmx */; };
+		FDC2D93418F80E6800E868C1 /* whoosh.wav in Resources */ = {isa = PBXBuildFile; fileRef = FDC2D93318F80E6800E868C1 /* whoosh.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +109,13 @@
 		FD94560B18E6B5460056EA2C /* channelx.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = channelx.mp3; path = assets/channelx.mp3; sourceTree = "<group>"; };
 		FD94560D18E967710056EA2C /* MySceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySceneDelegate.h; sourceTree = "<group>"; };
 		FD94560E18E9EB5B0056EA2C /* Level2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Level2.tmx; path = maps/Level2.tmx; sourceTree = "<group>"; };
+		FDC2D92418F6C5C900E868C1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		FDC2D92918F7C6F100E868C1 /* crash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = crash.wav; path = assets/crash.wav; sourceTree = "<group>"; };
+		FDC2D92B18F7C82000E868C1 /* die.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = die.mp3; path = assets/die.mp3; sourceTree = "<group>"; };
+		FDC2D92C18F7C82000E868C1 /* taketrip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = taketrip.mp3; path = assets/taketrip.mp3; sourceTree = "<group>"; };
+		FDC2D92F18F809A900E868C1 /* Level3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Level3.tmx; path = maps/Level3.tmx; sourceTree = "<group>"; };
+		FDC2D93118F80C5E00E868C1 /* Level4.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Level4.tmx; path = maps/Level4.tmx; sourceTree = "<group>"; };
+		FDC2D93318F80E6800E868C1 /* whoosh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = whoosh.wav; path = assets/whoosh.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDC2D92518F6C5C900E868C1 /* AudioToolbox.framework in Frameworks */,
 				FD7C776818D4BFB60059C1E7 /* libz.dylib in Frameworks */,
 				FD7C772518D480C00059C1E7 /* CoreGraphics.framework in Frameworks */,
 				FD7C772718D480C00059C1E7 /* UIKit.framework in Frameworks */,
@@ -140,6 +155,10 @@
 				FD5CB93118DB23EF002A9B09 /* dot.png */,
 				FD5CB93318DC70E8002A9B09 /* rectangle.png */,
 				FD94560918E6AF780056EA2C /* space.png */,
+				FDC2D92918F7C6F100E868C1 /* crash.wav */,
+				FDC2D92B18F7C82000E868C1 /* die.mp3 */,
+				FDC2D92C18F7C82000E868C1 /* taketrip.mp3 */,
+				FDC2D93318F80E6800E868C1 /* whoosh.wav */,
 			);
 			name = assets;
 			sourceTree = "<group>";
@@ -166,6 +185,7 @@
 		FD7C772118D480C00059C1E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDC2D92418F6C5C900E868C1 /* AudioToolbox.framework */,
 				FD7C776718D4BFB60059C1E7 /* libz.dylib */,
 				FD7C772218D480C00059C1E7 /* Foundation.framework */,
 				FD7C772418D480C00059C1E7 /* CoreGraphics.framework */,
@@ -236,6 +256,8 @@
 			children = (
 				FD4B1B3E18E4C67C0022D3EC /* Level1.tmx */,
 				FD94560E18E9EB5B0056EA2C /* Level2.tmx */,
+				FDC2D92F18F809A900E868C1 /* Level3.tmx */,
+				FDC2D93118F80C5E00E868C1 /* Level4.tmx */,
 				D63A39C118D9903900B6C664 /* Simple.tmx */,
 				FD4B1B3818DEF3EF0022D3EC /* Simple2.tmx */,
 				FD4B1B3A18DF01360022D3EC /* Simple3.tmx */,
@@ -324,8 +346,10 @@
 			files = (
 				FD94560F18E9EB5B0056EA2C /* Level2.tmx in Resources */,
 				FD4B1B3F18E4C67C0022D3EC /* Level1.tmx in Resources */,
+				FDC2D92A18F7C6F100E868C1 /* crash.wav in Resources */,
 				FD4B1B3918DEF3EF0022D3EC /* Simple2.tmx in Resources */,
 				FD94560618E604EF0056EA2C /* mulberrybush.mp3 in Resources */,
+				FDC2D93018F809A900E868C1 /* Level3.tmx in Resources */,
 				D63A39C418D9903900B6C664 /* simpleAtlas.png in Resources */,
 				FD5CB93218DB23EF002A9B09 /* dot.png in Resources */,
 				FD7C774518D480C00059C1E7 /* Images.xcassets in Resources */,
@@ -333,14 +357,18 @@
 				FD7C773B18D480C00059C1E7 /* Main_iPad.storyboard in Resources */,
 				FD4B1B3718DE01360022D3EC /* skylab.mp3 in Resources */,
 				FD94560C18E6B5460056EA2C /* channelx.mp3 in Resources */,
+				FDC2D93218F80C5E00E868C1 /* Level4.tmx in Resources */,
 				D63A39C318D9903900B6C664 /* Simple.tmx in Resources */,
 				FD94560A18E6AF780056EA2C /* space.png in Resources */,
 				FD5CB93418DC70E8002A9B09 /* rectangle.png in Resources */,
 				FD4B1B3B18DF01360022D3EC /* Simple3.tmx in Resources */,
 				FD7C773818D480C00059C1E7 /* Main_iPhone.storyboard in Resources */,
+				FDC2D93418F80E6800E868C1 /* whoosh.wav in Resources */,
 				FD94560818E609490056EA2C /* eencyweencyspider.mp3 in Resources */,
+				FDC2D92E18F7C82000E868C1 /* taketrip.mp3 in Resources */,
 				D65CFD5718E452FA0085737E /* Simple5.tmx in Resources */,
 				FD7C772F18D480C00059C1E7 /* InfoPlist.strings in Resources */,
+				FDC2D92D18F7C82000E868C1 /* die.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
