@@ -3,7 +3,7 @@
 #import "NSString+PointArray.h"ki
 
 //
-const NSUInteger KLapsRequired = 5;
+const NSUInteger KLapsRequired = 3;
 
 // 100 slow 10 fast
 const float KRotationSpeeed = 80;
@@ -14,7 +14,7 @@ const float KInterpolationDivider = 20;
 // Number of ghosts to display behind the rotor
 const NSUInteger KSpaceshipGhostCount = 50;
 // 0.2 slow 1 fast
-const CGFloat initialSpeed = 1.0;
+const CGFloat initialSpeed = 1.2;
 
 //0.001 very light 1 solid;
 const CGFloat KGhostAlpha = 0.005;
@@ -23,7 +23,7 @@ const CGFloat KGhostAlpha = 0.005;
 const CGFloat KSpeedIncrease = 0.5;
 
 // the number of 'lives'
-const NSUInteger KInitialPower = 7;
+const NSUInteger KInitialPower = 20;
 
 // 1 = normal 3 = zoomed in 0.5 is zoomed out
 const CGFloat KInitialZoomLevel = 2.0;
@@ -118,7 +118,15 @@ const CGFloat KInitialZoomLevel = 2.0;
 {
   NSLog(@"Contact");
   
-  if(_power) {
+  if (contact.bodyB.categoryBitMask == 3) {
+   [contact.bodyB.node runAction:[SKAction removeFromParent]];
+    
+   // [UIView animateWithDuration:1.5 animations:^ {
+  //  contact.bodyB.node.alpha = 0.0;
+   // }];
+    
+  }
+  else if(_power) {
     _power--;
     
     double alpha = _power;

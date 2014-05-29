@@ -18,12 +18,15 @@
   
   NSUInteger _level;
 }
+- (IBAction)quitTapped:(id)sender {
+  [self dismissViewControllerAnimated:YES completion:NULL];
+}
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
  
-  _level = 4;
+  _level = 12;
   
   _spriteKitView.alpha = 0.0;
   

@@ -48,8 +48,8 @@
 - (CGPoint)pointForCoord:(CGPoint)coord
 {
   return
-    CGPointMake(coord.x * _mapTileSize.width + _mapTileSize.width / 2,
-                [self layerHeight] - (coord.y * _mapTileSize.height + _mapTileSize.height / 2));
+  CGPointMake(coord.x * _mapTileSize.width + _mapTileSize.width / 2,
+              [self layerHeight] - (coord.y * _mapTileSize.height + _mapTileSize.height / 2));
 }
 
 - (CGPoint) coordForPoint:(CGPoint) inPoint
@@ -110,7 +110,7 @@
 		self.layerInfo.tiles[z] = 0;
 		
 		SKNode* tileNode = [self childNodeWithName:[NSString stringWithFormat:@"//%d",
-													(int)(coord.x + coord.y * self.layerInfo.layerGridSize.width)]];
+                                                (int)(coord.x + coord.y * self.layerInfo.layerGridSize.width)]];
 		if(tileNode)
 			[tileNode removeFromParent];
 	}
@@ -148,7 +148,7 @@
 	if (mapInfo.orientation == OrientationStyle_Isometric)
 	{
 		layer.position = CGPointMake((layer.mapTileSize.width / 2.0) * (layer.position.x - layer.position.y),
-									 (layer.mapTileSize.height / 2.0) * (-layer.position.x - layer.position.y));
+                                 (layer.mapTileSize.height / 2.0) * (-layer.position.x - layer.position.y));
 	}
 	
 	NSMutableDictionary* layerNodes = [NSMutableDictionary dictionaryWithCapacity:tilesets.count];
@@ -185,12 +185,12 @@
 				if (mapInfo.orientation == OrientationStyle_Isometric)
 				{
 					sprite.position = CGPointMake((layer.mapTileSize.width / 2.0) * (layerInfo.layerGridSize.width + col - row - 1),
-												  (layer.mapTileSize.height / 2.0) * ((layerInfo.layerGridSize.height * 2 - col - row) - 2) );
+                                        (layer.mapTileSize.height / 2.0) * ((layerInfo.layerGridSize.height * 2 - col - row) - 2) );
 				}
 				else
 				{
 					sprite.position = CGPointMake(col * layer.mapTileSize.width + layer.mapTileSize.width/2.0,
-												  (mapInfo.mapSize.height * (tilesetInfo.tileSize.height)) - ((row + 1) * layer.mapTileSize.height) + layer.mapTileSize.height/2.0);
+                                        (mapInfo.mapSize.height * (tilesetInfo.tileSize.height)) - ((row + 1) * layer.mapTileSize.height) + layer.mapTileSize.height/2.0);
 				}
 				
 				// flip sprites if necessary
@@ -216,17 +216,35 @@
 					layerNodes[tilesetInfo.name] = layerNode;
 				}
         
-        if(gID>5) {
-        sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:sprite.size];
-        sprite.physicsBody.dynamic = YES;
-        sprite.physicsBody.affectedByGravity = NO;
-        sprite.physicsBody.allowsRotation = YES;
-       // sprite.physicsBody.friction = 0.0;;
-       // sprite.physicsBody.linearDamping = 0;
-        sprite.physicsBody.resting = NO;
-        sprite.physicsBody.restitution = 0.0;
-        sprite.physicsBody.categoryBitMask = 2;
+        if (gID>=6 && gID <=8 ) {
+          sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:sprite.size];
+          sprite.physicsBody.dynamic = YES;
+          sprite.physicsBody.affectedByGravity = NO;
+          sprite.physicsBody.allowsRotation = YES;
+          // sprite.physicsBody.friction = 0.0;;
+          // sprite.physicsBody.linearDamping = 0;
+          sprite.physicsBody.resting = NO;
+          sprite.physicsBody.restitution = 0.0;
+          sprite.physicsBody.categoryBitMask = 2;
         }
+        else if (gID ==9) {
+          sprite.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:sprite.size.height/2];
+          sprite.physicsBody.dynamic = YES;
+          sprite.physicsBody.affectedByGravity = NO;
+          sprite.physicsBody.allowsRotation = YES;
+          // sprite.physicsBody.friction = 0.0;;
+          // sprite.physicsBody.linearDamping = 0;
+          sprite.physicsBody.resting = NO;
+          sprite.physicsBody.restitution = 0.0;
+          sprite.physicsBody.categoryBitMask = 3;
+          
+          SKAction *action = [SKAction rotateByAngle:(arc4random() % 7) -3.5  duration:2];
+          [sprite runAction:[SKAction repeatActionForever:action]];
+          
+          
+        }
+        
+        
 				[layerNode addChild:sprite];
 			}
 		}
@@ -286,11 +304,11 @@
 
 - (id)init
 {
-    self = [super init];
-    if (self) {
-        self.properties = [NSMutableDictionary dictionary];
-    }
-    return self;
+  self = [super init];
+  if (self) {
+    self.properties = [NSMutableDictionary dictionary];
+  }
+  return self;
 }
 
 -(void)dealloc
@@ -318,7 +336,7 @@
   [aCoder encodeFloat:_opacity forKey:@"TMXLayerInfoOpacity"];
   [aCoder encodeInteger:_minGID forKey:@"TMXLayerInfoMinGid"];
   [aCoder encodeInteger:_maxGID forKey:@"TMXLayerInfoMaxGid"];
-
+  
   [aCoder encodeObject:_properties forKey:@"TMXLayerInfoProperties"];
   [aCoder encodeCGPoint:_offset forKey:@"TMXLayerInfoOffset"];
   [aCoder encodeObject:_layer forKey:@"TMXLayerInfoLayer"];
@@ -331,14 +349,14 @@
   {
     _name = [aDecoder decodeObjectForKey:@"TMXLayerInfoName"];
     _layerGridSize = [aDecoder decodeCGSizeForKey:@"TMXLayerInfoGridSize"];
-
+    
     NSData* data = [aDecoder decodeObjectForKey:@"TMXLayerInfoTiles"];
     int* temp = (int*)[data bytes];
     _tiles = malloc(sizeof(int)*(_layerGridSize.width*_layerGridSize.height));
     for(int i = 0; i < (_layerGridSize.width*_layerGridSize.height); ++i) {
       _tiles[i] = temp[i];
     }
-  
+    
     _visible = [aDecoder decodeBoolForKey:@"TMXLayerInfoVisible"];
     _opacity = [aDecoder decodeFloatForKey:@"TMXLayerInfoOpacity"];
     _minGID = [aDecoder decodeIntForKey:@"TMXLayerInfoMinGid"];
@@ -358,12 +376,12 @@
 
 - (id)init
 {
-    self = [super init];
-    if (self) {
-        self.objects = [NSMutableArray array];
-        self.properties = [NSMutableDictionary dictionary];
-    }
-    return self;
+  self = [super init];
+  if (self) {
+    self.objects = [NSMutableArray array];
+    self.properties = [NSMutableDictionary dictionary];
+  }
+  return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder
@@ -422,11 +440,11 @@
 
 - (id)init
 {
-    self = [super init];
-    if (self) {
-        self.properties = [NSMutableDictionary dictionary];
-    }
-    return self;
+  self = [super init];
+  if (self) {
+    self.properties = [NSMutableDictionary dictionary];
+  }
+  return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder
@@ -463,7 +481,7 @@
 		_spacing = [attributes[@"spacing"] intValue];
 		_margin = [attributes[@"margin"] intValue];
 		_tileSize = CGSizeMake([attributes[@"tilewidth"] intValue],
-							   [attributes[@"tileheight"] intValue]);
+                           [attributes[@"tileheight"] intValue]);
 		
 		_textureCache = [NSMutableDictionary dictionary];
 		
@@ -476,11 +494,11 @@
 	_sourceImage = [sourceImage copy];
 	UIImage* atlas = [UIImage imageWithContentsOfFile:_sourceImage];
 	_imageSize = atlas.size;
-//	_atlasTexture = [SKTexture textureWithImage:atlas];           // CML: There seems to be a bug where creating with Image instead of ImageNamed breaks the
+  //	_atlasTexture = [SKTexture textureWithImage:atlas];           // CML: There seems to be a bug where creating with Image instead of ImageNamed breaks the
 	_atlasTexture = [SKTexture textureWithImageNamed:_sourceImage]; //      archiving.
 	
 	_unitTileSize = CGSizeMake(_tileSize.width / _imageSize.width,
-							   _tileSize.height / _imageSize.height);
+                             _tileSize.height / _imageSize.height);
 	
 	_atlasTilesPerRow = (_imageSize.width - _margin * 2 + _spacing) / (_tileSize.width + _spacing);
 	_atlasTilesPerCol = (_imageSize.height - _margin * 2 + _spacing) / (_tileSize.height + _spacing);
@@ -511,14 +529,14 @@
 		
 		// note that the width and height of the tiles are always the same in TMX maps or the atlas (GIDs) couldn't be calculated consistently.
 		CGRect rect = CGRectMake(colOffset, rowOffset,
-								 self.unitTileSize.width, self.unitTileSize.height);
+                             self.unitTileSize.width, self.unitTileSize.height);
 		
 		texture = [SKTexture textureWithRect:rect inTexture:self.atlasTexture];
 		texture.usesMipmaps = YES;
 		texture.filteringMode = SKTextureFilteringNearest;
 		self.textureCache[@(gid)] = texture;
 		
-		}
+  }
 	return texture;
 }
 
@@ -660,16 +678,16 @@
 					
 					if (map.orientation == OrientationStyle_Isometric)
 					{
-//#warning these appear to be incorrect for iso maps when used for tile objects!  Unsure why the math is different between objects and regular tiles.
+            //#warning these appear to be incorrect for iso maps when used for tile objects!  Unsure why the math is different between objects and regular tiles.
 						CGPoint coords = [map screenCoordToPosition:CGPointMake(x, y)];
 						pt = CGPointMake((map.tileSize.width / 2.0) * (map.tileSize.width + coords.x - coords.y - 1),
-										 (map.tileSize.height / 2.0) * (((map.tileSize.height * 2) - coords.x - coords.y) - 2));
+                             (map.tileSize.height / 2.0) * (((map.tileSize.height * 2) - coords.x - coords.y) - 2));
 						
-//  NOTE:
-//	iso zPositioning may not work as expected for maps with irregular tile sizes.  For larger tiles (i.e. a box in front of some floor
-//	tiles) We would need each layer to have their tiles ordered lower at the bottom coords and higher at the top coords WITHIN THE LAYER, in
-//	addition to the layers being offset as described below. this could potentially be a lot larger than 20 as a default and may take some
-//	thinking to fix.
+            //  NOTE:
+            //	iso zPositioning may not work as expected for maps with irregular tile sizes.  For larger tiles (i.e. a box in front of some floor
+            //	tiles) We would need each layer to have their tiles ordered lower at the bottom coords and higher at the top coords WITHIN THE LAYER, in
+            //	addition to the layers being offset as described below. this could potentially be a lot larger than 20 as a default and may take some
+            //	thinking to fix.
 					}
 					else
 					{
@@ -681,7 +699,7 @@
 					sprite.zPosition = baseZPosition + ((map.zOrderCount - objectGroup.zOrderCount) * zOrderModifier);
 					[map addChild:sprite];
 					
-//#warning This needs to be optimized into tilemap layers like our regular layers above for performance reasons.
+          //#warning This needs to be optimized into tilemap layers like our regular layers above for performance reasons.
 					// this could be problematic...  what if a single object group had a bunch of tiles from different tilemaps?  Would this cause zOrder problems if we're adding them all to tilemap layers?
 				}
 			}
@@ -695,8 +713,8 @@
 		image.position = CGPointMake(image.size.width / 2.0, image.size.height / 2.0);
 		image.zPosition = baseZPosition + ((map.zOrderCount - imageLayer.zOrderCount) * zOrderModifier);
 		[map addChild:image];
-
-//#warning the positioning is off here, seems to be bottom-left instead of top-left.  Might be off on the rest of the sprites too...?
+    
+    //#warning the positioning is off here, seems to be bottom-left instead of top-left.  Might be off on the rest of the sprites too...?
 	}
 	
 	return map;
@@ -760,14 +778,14 @@
 
 - (id)init
 {
-    self = [super init];
-    if (self)
+  self = [super init];
+  if (self)
 	{
 		currentFirstGID = 0;
 		currentString = [NSMutableString string];
 		storingCharacters = NO;
 		layerAttributes = TMXLayerAttributeNone;
-
+    
 		self.zOrderCount = 1;
 		self.parentElement = TMXPropertyNone;
 		self.tilesets = [NSMutableArray array];
@@ -777,8 +795,8 @@
 		self.imageLayers = [NSMutableArray array];
 		self.objectGroups = [NSMutableArray array];
 		self.resources = nil;	// possible future resources path
-    }
-    return self;
+  }
+  return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder
@@ -800,7 +818,7 @@
   [aCoder encodeObject:_objectGroups forKey:@"JSTileMapObjectGroups"];
   [aCoder encodeObject:_gidData forKey:@"JSTileMapGidData"];
   [aCoder encodeInteger:_zOrderCount forKey:@"JSTileMapZOrderCount"];
-
+  
   // parsing variables -- not sure they need to be coded, but just in case
   [aCoder encodeObject:currentString forKey:@"JSTileMapCurrentString"];
   [aCoder encodeBool:storingCharacters forKey:@"JSTileMapStoringChars"];
@@ -886,7 +904,7 @@
 		}
 		
 		TMXTilesetInfo *tileset = [[TMXTilesetInfo alloc] initWithGid:gID
-														   attributes:attributeDict];
+                                                       attributes:attributeDict];
 		[self.tilesets addObject:tileset];
 	}
 	else if([elementName isEqualToString:@"tile"])
@@ -923,7 +941,7 @@
 		
 		layer.zOrderCount = self.zOrderCount;
 		self.zOrderCount++;
-
+    
 		[self.layers addObject:layer];
 		
 		self.parentElement = TMXPropertyLayer;
@@ -952,7 +970,7 @@
 		
 		objectGroup.zOrderCount = self.zOrderCount;
 		self.zOrderCount++;
-
+    
 		[self.objectGroups addObject:objectGroup];
 		
 		// The parent element is now "objectgroup"
@@ -1102,8 +1120,8 @@
 	}
 	else if ([elementName isEqualToString:@"ellipse"])
 	{
-        // find parent object's dict and add ellipse to it
-        TMXObjectGroup *objectGroup = [self.objectGroups lastObject];
+    // find parent object's dict and add ellipse to it
+    TMXObjectGroup *objectGroup = [self.objectGroups lastObject];
 		NSMutableDictionary *dict = [[objectGroup objects] lastObject];
 		[dict setObject:[NSNumber numberWithBool:YES] forKey:@"ellipse"];
 	}
@@ -1123,7 +1141,7 @@
 		{
 			// clean whitespace from string
 			currentString = [NSMutableString stringWithString:[currentString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-						
+      
 			NSData* buffer = [[NSData alloc] initWithBase64EncodedString:currentString options:0];
 			if( ! buffer.length ) {
 				NSLog(@"TiledMap: decode data error");
@@ -1141,7 +1159,7 @@
 				
 				int inflatedLen = InflateMemoryWithHint((unsigned char*)[buffer bytes], len, &deflated, sizeHint);
 				NSAssert( inflatedLen == sizeHint, @"CCTMXXMLParser: Hint failed!");
-												
+        
 				if( ! deflated )
 				{
 					NSLog(@"TiledMap: inflate data error");
@@ -1202,7 +1220,7 @@
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
-    if (storingCharacters)
+  if (storingCharacters)
 		[currentString appendString:string];
 }
 

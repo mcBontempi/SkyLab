@@ -12,5 +12,6 @@
 
 - (void)levelComplete;
 - (void)died;
+- (void)quit;
 
 @end
