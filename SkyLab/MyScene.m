@@ -26,7 +26,7 @@ const CGFloat KSpeedIncrease = 0.5;
 const NSUInteger KInitialPower = 10;
 
 // 1 = normal 3 = zoomed in 0.5 is zoomed out
-const CGFloat KInitialZoomLevel = 2.0;
+const CGFloat KInitialZoomLevel = 1;
 
 @interface MyScene () <SKPhysicsContactDelegate>
 @property (nonatomic,weak) SKLabelNode* mapNameLabel;
@@ -120,6 +120,9 @@ const CGFloat KInitialZoomLevel = 2.0;
   
   if (contact.bodyB.categoryBitMask == 3) {
    [contact.bodyB.node runAction:[SKAction removeFromParent]];
+      
+      _speed += KSpeedIncrease;
+      
     
    // [UIView animateWithDuration:1.5 animations:^ {
   //  contact.bodyB.node.alpha = 0.0;

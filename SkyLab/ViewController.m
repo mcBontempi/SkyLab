@@ -26,7 +26,7 @@
 {
   [super viewDidLoad];
  
-  _level = 20;
+  _level = 14;
   
   _spriteKitView.alpha = 1.0;
   
