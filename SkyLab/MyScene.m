@@ -14,7 +14,7 @@ const float KInterpolationDivider = 20;
 // Number of ghosts to display behind the rotor
 const NSUInteger KSpaceshipGhostCount = 50;
 // 0.2 slow 1 fast
-const CGFloat initialSpeed = 1.2;
+const CGFloat initialSpeed = 1.3;
 
 //0.001 very light 1 solid;
 const CGFloat KGhostAlpha = 0.005;
@@ -23,7 +23,7 @@ const CGFloat KGhostAlpha = 0.005;
 const CGFloat KSpeedIncrease = 0.5;
 
 // the number of 'lives'
-const NSUInteger KInitialPower = 20;
+const NSUInteger KInitialPower = 10;
 
 // 1 = normal 3 = zoomed in 0.5 is zoomed out
 const CGFloat KInitialZoomLevel = 2.0;
