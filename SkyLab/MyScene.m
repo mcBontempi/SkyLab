@@ -26,7 +26,7 @@ const CGFloat KSpeedIncrease = 0.5;
 const NSUInteger KInitialPower = 10;
 
 // 1 = normal 3 = zoomed in 0.5 is zoomed out
-const CGFloat KInitialZoomLevel = 1;
+const CGFloat KInitialZoomLevel = 2;
 
 @interface MyScene () <SKPhysicsContactDelegate>
 @property (nonatomic,weak) SKLabelNode* mapNameLabel;

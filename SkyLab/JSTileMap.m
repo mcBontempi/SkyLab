@@ -238,7 +238,7 @@
           sprite.physicsBody.restitution = 0.0;
           sprite.physicsBody.categoryBitMask = 3;
           
-          SKAction *action = [SKAction rotateByAngle:(arc4random() % 7) -3.5  duration:2];
+          SKAction *action = [SKAction rotateByAngle:(arc4random() % 7) -3.5  duration:0.1];
           [sprite runAction:[SKAction repeatActionForever:action]];
           
           

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D605298C18DC1E5B007C5B1B /* NSString+PointArray.m in Sources */ = {isa = PBXBuildFile; fileRef = D605298B18DC1E5B007C5B1B /* NSString+PointArray.m */; };
 		D63A39C418D9903900B6C664 /* simpleAtlas.png in Resources */ = {isa = PBXBuildFile; fileRef = D63A39C218D9903900B6C664 /* simpleAtlas.png */; };
+		D6F52E9E1B2075BD00E96D81 /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F52E9D1B2075BD00E96D81 /* LevelSelectViewController.swift */; };
 		FD36BB8C19156AE200DEB91E /* Level11.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FD36BB8B19156AE200DEB91E /* Level11.tmx */; };
 		FD4B1B3718DE01360022D3EC /* skylab.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FD4B1B3618DE01360022D3EC /* skylab.mp3 */; };
 		FD4B1B3F18E4C67C0022D3EC /* Level1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FD4B1B3E18E4C67C0022D3EC /* Level1.tmx */; };
@@ -62,7 +63,6 @@
 		FDC2D93A18F90D0B00E868C1 /* Level7.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FDC2D93918F90D0B00E868C1 /* Level7.tmx */; };
 		FDC2D93C18F90F6D00E868C1 /* Level8.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FDC2D93B18F90F6D00E868C1 /* Level8.tmx */; };
 		FDC2D93E18F9124800E868C1 /* Level9.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FDC2D93D18F9124800E868C1 /* Level9.tmx */; };
-		FDC2D94118F9187000E868C1 /* LevelSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC2D94018F9187000E868C1 /* LevelSelectViewController.m */; };
 		FDC2D94418F9188400E868C1 /* WorldSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC2D94318F9188400E868C1 /* WorldSelectViewController.m */; };
 		FDC2D94718F9189000E868C1 /* DDTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC2D94618F9189000E868C1 /* DDTViewController.m */; };
 		FDC2D94918F98E7200E868C1 /* Level10.tmx in Resources */ = {isa = PBXBuildFile; fileRef = FDC2D94818F98E7200E868C1 /* Level10.tmx */; };
@@ -82,6 +82,8 @@
 		D605298A18DC1E5B007C5B1B /* NSString+PointArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PointArray.h"; sourceTree = "<group>"; };
 		D605298B18DC1E5B007C5B1B /* NSString+PointArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PointArray.m"; sourceTree = "<group>"; };
 		D63A39C218D9903900B6C664 /* simpleAtlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = simpleAtlas.png; path = maps/simpleAtlas.png; sourceTree = "<group>"; };
+		D6F52E9C1B2075BD00E96D81 /* SkyLab-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SkyLab-Bridging-Header.h"; sourceTree = "<group>"; };
+		D6F52E9D1B2075BD00E96D81 /* LevelSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
 		FD36BB8B19156AE200DEB91E /* Level11.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Level11.tmx; path = maps/Level11.tmx; sourceTree = "<group>"; };
 		FD4B1B3618DE01360022D3EC /* skylab.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = skylab.mp3; path = assets/skylab.mp3; sourceTree = "<group>"; };
 		FD4B1B3E18E4C67C0022D3EC /* Level1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Level1.tmx; path = maps/Level1.tmx; sourceTree = "<group>"; };
@@ -144,8 +146,6 @@
 		FDC2D93918F90D0B00E868C1 /* Level7.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Level7.tmx; path = maps/Level7.tmx; sourceTree = "<group>"; };
 		FDC2D93B18F90F6D00E868C1 /* Level8.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Level8.tmx; path = maps/Level8.tmx; sourceTree = "<group>"; };
 		FDC2D93D18F9124800E868C1 /* Level9.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Level9.tmx; path = maps/Level9.tmx; sourceTree = "<group>"; };
-		FDC2D93F18F9187000E868C1 /* LevelSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectViewController.h; sourceTree = "<group>"; };
-		FDC2D94018F9187000E868C1 /* LevelSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectViewController.m; sourceTree = "<group>"; };
 		FDC2D94218F9188400E868C1 /* WorldSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldSelectViewController.h; sourceTree = "<group>"; };
 		FDC2D94318F9188400E868C1 /* WorldSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldSelectViewController.m; sourceTree = "<group>"; };
 		FDC2D94518F9189000E868C1 /* DDTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTViewController.h; sourceTree = "<group>"; };
@@ -253,12 +253,12 @@
 				FD7C772B18D480C00059C1E7 /* Supporting Files */,
 				D605298A18DC1E5B007C5B1B /* NSString+PointArray.h */,
 				D605298B18DC1E5B007C5B1B /* NSString+PointArray.m */,
-				FDC2D93F18F9187000E868C1 /* LevelSelectViewController.h */,
-				FDC2D94018F9187000E868C1 /* LevelSelectViewController.m */,
 				FDC2D94218F9188400E868C1 /* WorldSelectViewController.h */,
 				FDC2D94318F9188400E868C1 /* WorldSelectViewController.m */,
 				FDC2D94518F9189000E868C1 /* DDTViewController.h */,
 				FDC2D94618F9189000E868C1 /* DDTViewController.m */,
+				D6F52E9D1B2075BD00E96D81 /* LevelSelectViewController.swift */,
+				D6F52E9C1B2075BD00E96D81 /* SkyLab-Bridging-Header.h */,
 			);
 			path = SkyLab;
 			sourceTree = "<group>";
@@ -460,8 +460,8 @@
 				FDC2D94418F9188400E868C1 /* WorldSelectViewController.m in Sources */,
 				FD7C773E18D480C00059C1E7 /* ViewController.m in Sources */,
 				FD7C773518D480C00059C1E7 /* AppDelegate.m in Sources */,
-				FDC2D94118F9187000E868C1 /* LevelSelectViewController.m in Sources */,
 				FD7C776618D4BEFA0059C1E7 /* LFCGzipUtility.m in Sources */,
+				D6F52E9E1B2075BD00E96D81 /* LevelSelectViewController.swift in Sources */,
 				FD7C773118D480C00059C1E7 /* main.m in Sources */,
 				FDC2D94718F9189000E868C1 /* DDTViewController.m in Sources */,
 			);
@@ -598,11 +598,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SkyLab/SkyLab-Prefix.pch";
 				INFOPLIST_FILE = "SkyLab/SkyLab-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SkyLab/SkyLab-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -612,11 +616,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SkyLab/SkyLab-Prefix.pch";
 				INFOPLIST_FILE = "SkyLab/SkyLab-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SkyLab/SkyLab-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
